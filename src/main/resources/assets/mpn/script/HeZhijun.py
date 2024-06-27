@@ -19,11 +19,5 @@ class CBug:
                 return self.over.text
 
 
-header = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 '
-                  'Safari/537.36 Edg/126.0.0.0'}
-url = 'http://cipstudio.top/'
-f = CBug(url, header)
-with open('test.html', 'w', encoding='utf-8') as file:
-    file.write(f.ReturnSth("html"))
+print("HeZhijun in CMS was here!!")
 
