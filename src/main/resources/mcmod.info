@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mpn",
+  "name": "Minecraft Project Nexus",
+  "description": "Minecraft Project Nexus,batter than IC2",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["HeZhijun43-CMS","CIP-Team"],
+  "credits": "The CMS and CIP guys, for making this Mod",
+  "logoFile": "nc.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
