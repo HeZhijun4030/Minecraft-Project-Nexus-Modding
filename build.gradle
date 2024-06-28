@@ -116,10 +116,7 @@ publishing {
         }
     }
 }
-sourceSets{main{output.resourcesDir=output.resourcesDir}}
-//孩子们构建的时候请务必把这个注释掉，否则会导致编译失败
-//孩子们构建的时候请务必把这个注释掉，否则会导致编译失败
-//孩子们构建的时候请务必把这个注释掉，否则会导致编译失败
-//孩子们构建的时候请务必把这个注释掉，否则会导致编译失败
-//孩子们构建的时候请务必把这个注释掉，否则会导致编译失败
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
 
