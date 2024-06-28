@@ -3,9 +3,10 @@
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/CIP with-CMS-blue" alt="CIP & CMS Team Collaboration"/>
+  <img src="https://img.shields.io/badge/CIP with CMS-0080FF" alt="cac"/>
   <img src="https://img.shields.io/badge/MDK-1.12.2_14.23.5.2860-brown" alt="Minecraft Development Kit Version"/>
-  <img src="https://img.shields.io/badge/Java-8-blue" alt="Java Version"/>
+  <img src="https://img.shields.io/badge/Java-8U371-00CC00" alt="Java Version"/>
+  <img src="https://img.shields.io/badge/LICENSE-MIT-0080FF" alt="Java Version"/>
 </p>
 
 ---
