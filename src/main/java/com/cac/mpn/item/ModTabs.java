@@ -12,7 +12,7 @@ public class ModTabs {
     public static final CreativeTabs MPN_TAB = new CreativeTabs(CreativeTabs.getNextID(),"mpn_tab") {
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem() {
-            return new ItemStack(Item.getItemFromBlock(Blocks.COMMAND_BLOCK));
+            return new ItemStack(Item.getItemFromBlock(Blocks.COMMAND_BLOCK).setUnlocalizedName("mpn_tab"));
         }
     }; }
 

@@ -1,0 +1,4 @@
+#PARSE_ESCAPES
+item.data_knife.name=数据刀
+item.data_knife.desc=S-3LF获取工具
+itemGroup.mpn_tab=联合工业

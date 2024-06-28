@@ -13,7 +13,7 @@ class RegisterItem {
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(new Item().setRegistryName("data_knife").setCreativeTab(ModTabs.MPN_TAB));
+        event.getRegistry().register(new Item().setRegistryName("data_knife").setCreativeTab(ModTabs.MPN_TAB).setUnlocalizedName("data_knife"));
         //第一个物品，暂时未添加贴图
     }
 
