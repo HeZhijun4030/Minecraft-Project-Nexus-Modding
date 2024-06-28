@@ -116,7 +116,9 @@ publishing {
         }
     }
 }
-jar {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+sourceSets {
+    main {
+        output.resourcesDir = output.classesDir
+    }
 }
 
