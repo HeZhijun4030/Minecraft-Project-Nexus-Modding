@@ -1,20 +1,26 @@
 package com.cac.mpn.item;
 
-import net.minecraft.creativetab.CreativeTabs;
+import com.cac.mpn.item.Item_Swords.DataKnife;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.registries.IForgeRegistry;
+
 
 @Mod.EventBusSubscriber
-class RegisterItem {
+public class RegisterItem {
 
 
+
+
+    public static final DataKnife DATA_KNIFE = new DataKnife();
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        event.getRegistry().register(new Item().setRegistryName("data_knife").setCreativeTab(ModTabs.MPN_TAB).setUnlocalizedName("data_knife"));
-        //第一个物品，暂时未添加贴图
+        IForgeRegistry<Item> registry = event.getRegistry();
+        registry.register(DATA_KNIFE);
+
     }
 
 }
