@@ -10,9 +10,9 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = Mod_Main.MODID, name = Mod_Main.NAME, version = Mod_Main.VERSION)
 public class Mod_Main
 {
-    public static final String MODID = "mpn";
+    public static final String MODID = "Minecraft Project Nexues";
     public static final String NAME = "Minecraft Project Nexues";
-    public static final String VERSION = "Test-0.1";
+    public static final String VERSION = "0.2.1";
 
     private static Logger logger;
 
