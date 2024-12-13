@@ -1,0 +1,12 @@
+{
+  "forge_marker": {
+    "defaults": {
+      "model": "minecraft:cube_all" ,
+      "textures": { "all":  "Nexues:blocks/Spectral_solar"}
+    },
+    "variants": {
+      "normal": [{}],
+      "inventory": [{ "transform": "forge:default-block"}]
+    }
+  }
+}
