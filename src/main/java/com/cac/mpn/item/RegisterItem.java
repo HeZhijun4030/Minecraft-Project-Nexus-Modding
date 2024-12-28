@@ -25,6 +25,7 @@ public class RegisterItem {
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(ELECTRONIC_SOLAR);
     public static final DataKnife DATA_KNIFE = new DataKnife();
     public static final ItemBlock ITEM_SINGULAR_SOLAR = new ItemBlock(SINGULAR_SOLAR);
+    @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
         registry.register(DATA_KNIFE);
@@ -36,6 +37,7 @@ public class RegisterItem {
         registry.register(ITEM_SINGULAR_SOLAR);
 
     }
+    @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void onModelRegistry(ModelRegistryEvent event) {
         ModelLoader.setCustomModelResourceLocation(DATA_KNIFE, 0,

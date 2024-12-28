@@ -15,7 +15,3 @@ public class ModTabs {
             return new ItemStack(Item.getItemFromBlock(Blocks.COMMAND_BLOCK).setUnlocalizedName("mpn_tab"));
         }
     }; }
-
-
-
-

@@ -13,9 +13,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '0.3.0'
+version = 'Test-0.1'
 group = 'com.cac.mpn' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'Minecraft_Project_Nexues'
+archivesBaseName = 'mpn'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
