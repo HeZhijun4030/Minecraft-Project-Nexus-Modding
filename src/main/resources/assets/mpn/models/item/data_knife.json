@@ -2,12 +2,12 @@
   "forge_marker" : 1,
   "defaults": {
     "model": "minecraft:builtin/generated",
-    "textures": {"layer0": "Nexues:items/knife"}
+    "textures": {"layer0": "mpn:items/knife"}
     },
   "variants": {
     "inventory": [
       {
-        "transform": "forge:default-tools"
+        "transform": "forge:default-item"
       }
     ]
   }

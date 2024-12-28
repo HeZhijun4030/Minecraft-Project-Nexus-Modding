@@ -2,7 +2,7 @@
   "forge_marker": {
     "defaults": {
       "model": "minecraft:cube_all" ,
-      "textures": { "all":  "Nexues:blocks/Spectral_solar"}
+      "textures": { "all":  "mpn:textures/items/Spectral_solar"}
     },
     "variants": {
       "normal": [{}],
