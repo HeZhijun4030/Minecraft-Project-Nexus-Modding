@@ -15,16 +15,14 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 import static com.cac.mpn.Block.RegisterBlock.*;
 
-
 @Mod.EventBusSubscriber
 public class RegisterItem {
-
-
 
     public static final ItemBlock ITEM_SPECTRAL_SOLAR = new ItemBlock(SPECTRAL_SOLAR);
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(ELECTRONIC_SOLAR);
     public static final DataKnife DATA_KNIFE = new DataKnife();
     public static final ItemBlock ITEM_SINGULAR_SOLAR = new ItemBlock(SINGULAR_SOLAR);
+
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
@@ -35,13 +33,28 @@ public class RegisterItem {
         registry.register(ITEM_ELECTRONIC_SOLAR);
         ITEM_SINGULAR_SOLAR.setRegistryName(ITEM_SINGULAR_SOLAR.getBlock().getRegistryName());
         registry.register(ITEM_SINGULAR_SOLAR);
+    }
 
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public static void registerModels(ModelRegistryEvent event) {
+        registerModel(DATA_KNIFE);
+        registerModel(ITEM_SPECTRAL_SOLAR);
+        registerModel(ITEM_ELECTRONIC_SOLAR);
+        registerModel(ITEM_SINGULAR_SOLAR);
+    }
+
+    @SideOnly(Side.CLIENT)
+    private static void registerModel(Item item) {
+        ModelResourceLocation modelResourceLocation = new ModelResourceLocation(item.getRegistryName(), "inventory");
+        ModelLoader.setCustomModelResourceLocation(item, 0, modelResourceLocation);
     }
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void onModelRegistry(ModelRegistryEvent event) {
-        ModelLoader.setCustomModelResourceLocation(DATA_KNIFE, 0,
-                new ModelResourceLocation(DATA_KNIFE.getRegistryName(), "inventory"));
+        registerModel(ITEM_SPECTRAL_SOLAR);
+        registerModel(ITEM_ELECTRONIC_SOLAR);
+        registerModel(ITEM_SINGULAR_SOLAR);
+        registerModel(DATA_KNIFE);
     }
-
 }

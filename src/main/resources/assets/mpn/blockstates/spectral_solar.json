@@ -1,0 +1,19 @@
+{
+  "forge_marker":1,
+  "defaults": {
+    "model": "minecraft:orientable" ,
+    "textures": {
+      "top": "mpn:blocks/spectral_solar_top",
+      "front": "mpn:blocks/spectral_solar_nnn",
+      "side": "mpn:blocks/spectral_solar_nn"
+    }
+  },
+  "variants": {
+    "facing=west": [{"y": 270}],
+    "facing=south": [{"y" : 180}],
+    "facing=east": [{"y" : 90}],
+    "facing=north": [{}],
+    "normal": [{}],
+    "inventory": [{ "transform": "forge:default-block"}]
+  }
+}
