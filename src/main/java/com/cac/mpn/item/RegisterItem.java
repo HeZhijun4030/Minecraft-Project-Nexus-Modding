@@ -22,6 +22,7 @@ public class RegisterItem {
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(ELECTRONIC_SOLAR);
     public static final DataKnife DATA_KNIFE = new DataKnife();
     public static final ItemBlock ITEM_SINGULAR_SOLAR = new ItemBlock(SINGULAR_SOLAR);
+    public static final ItemBlock ITEM_TITANIUM = new ItemBlock(TITANIUM);
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -33,6 +34,8 @@ public class RegisterItem {
         registry.register(ITEM_ELECTRONIC_SOLAR);
         ITEM_SINGULAR_SOLAR.setRegistryName(ITEM_SINGULAR_SOLAR.getBlock().getRegistryName());
         registry.register(ITEM_SINGULAR_SOLAR);
+        ITEM_TITANIUM.setRegistryName(ITEM_TITANIUM.getBlock().getRegistryName());
+        registry.register(ITEM_TITANIUM);
     }
 
     @SubscribeEvent
