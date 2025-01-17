@@ -5,3 +5,6 @@ item.singular_block.name=Singular block
 item.electronic_solar.name=Electronic solar
 item.data_knife.desc=A tool to get S-3LF
 itemGroup.mpn_tab=Project Nexus
+item.titanium.name=Titanium
+item.titanium_ingot.name=Ttitanium ingot
+item.titanium_sword.name=Titanium sword

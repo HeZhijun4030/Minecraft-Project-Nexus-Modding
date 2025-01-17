@@ -7,8 +7,8 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.cac.mpn.item.ModTabs;
 public class Titanium_ingot extends Item {
     public Titanium_ingot() {
-        this.setUnlocalizedName("Titanium_ingot");
-        this.setRegistryName("Titanium_ingot");
+        this.setUnlocalizedName("titanium_ingot");
+        this.setRegistryName("titanium_ingot");
         this.setMaxStackSize(16);
         setCreativeTab(ModTabs.MPN_TAB);
 

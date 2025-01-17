@@ -7,8 +7,8 @@ public class Titanium extends Block {
     public Titanium()
     {
         super(Material.IRON);
-        this.setUnlocalizedName("singular_solar");
-        this.setRegistryName("singular_solar");
+        this.setUnlocalizedName("titanium");
+        this.setRegistryName("titanium");
         this.setHardness(5.0F);
         this.setCreativeTab(ModTabs.MPN_TAB);
     }

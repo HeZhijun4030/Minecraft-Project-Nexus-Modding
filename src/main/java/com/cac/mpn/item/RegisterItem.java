@@ -24,10 +24,10 @@ public class RegisterItem {
     public static final ItemBlock ITEM_SPECTRAL_SOLAR = new ItemBlock(SPECTRAL_SOLAR);
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(ELECTRONIC_SOLAR);
     public static final ItemBlock ITEM_SINGULAR_SOLAR = new ItemBlock(SINGULAR_SOLAR);
-    public static final DataKnife DATA_KNIFE = new DataKnife();
     public static final ItemBlock ITEM_TITANIUM = new ItemBlock(TITANIUM);
     public static final Titanium_sword TITANIUM_SWORD = new Titanium_sword();
     public static final Titanium_ingot TITANIUM_INGOT = new Titanium_ingot();
+    public static final DataKnife DATA_KNIFE = new DataKnife();
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
