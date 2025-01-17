@@ -10,5 +10,7 @@ public class Titanium_ingot extends Item {
         this.setUnlocalizedName("Titanium_ingot");
         this.setRegistryName("Titanium_ingot");
         this.setMaxStackSize(16);
+        setCreativeTab(ModTabs.MPN_TAB);
+
     }
 }
