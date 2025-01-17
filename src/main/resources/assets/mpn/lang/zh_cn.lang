@@ -2,10 +2,10 @@
 
 tile.spectral_solar.name= 频谱太阳能
 item.data_knife.name=数据刀
-tile.singular_block.name=奇异太阳能
-item.electronic_solar.name=电子太阳能
+tile.singular_solar.name=奇异太阳能
+tile.electronic_solar.name=电子太阳能
 item.data_knife.desc=S-3LF获取工具
 itemGroup.mpn_tab=联合工业
-item.titanium.name=钛合金矿
+tile.titanium.name=钛合金矿
 item.titanium_ingot.name=钛合金锭
 item.titanium_sword.name=钛合金剑

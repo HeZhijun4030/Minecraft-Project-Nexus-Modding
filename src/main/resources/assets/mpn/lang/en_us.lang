@@ -1,10 +1,10 @@
 #PARSE_ESCAPES
 tile.spectral_solar.name= Spectral Solar
 item.data_knife.name=Data Knife
-item.singular_block.name=Singular block
-item.electronic_solar.name=Electronic solar
+tile.singular_block.name=Singular block
+tile.electronic_solar.name=Electronic solar
 item.data_knife.desc=A tool to get S-3LF
 itemGroup.mpn_tab=Project Nexus
-item.titanium.name=Titanium
+tile.titanium.name=Titanium
 item.titanium_ingot.name=Ttitanium ingot
 item.titanium_sword.name=Titanium sword
