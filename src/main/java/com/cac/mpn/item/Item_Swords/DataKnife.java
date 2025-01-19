@@ -8,9 +8,9 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.cac.mpn.item.ModTabs;
 
 public class DataKnife extends ItemSword {
-    public static final Item.ToolMaterial DATA_SWORD= EnumHelper.addToolMaterial("DATA",3, 255, 5.5F, 1.5F, 14);
+    public static final Item.ToolMaterial DATA= EnumHelper.addToolMaterial("DATA",3, 255, 5.5F, 1.5F, 14);
     public DataKnife() {
-        super(DATA_SWORD);
+        super(DATA);
         this.setUnlocalizedName("data_knife");
         this.setRegistryName("data_knife");
         setCreativeTab(ModTabs.MPN_TAB);
