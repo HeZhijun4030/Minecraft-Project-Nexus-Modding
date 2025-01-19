@@ -6,4 +6,5 @@ tile.singular_block.name=奇异太阳能
 item.electronic_solar.name=电子太阳能
 item.data_knife.desc=S-3LF获取工具
 itemGroup.mpn_tab=联合工业
-item.titanium.name=钛合金
+item.titanium.ingot.name=钛合金
+tile.titanium.name=钛合金矿

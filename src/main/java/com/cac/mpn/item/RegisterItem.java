@@ -22,6 +22,7 @@ import static com.cac.mpn.Block.RegisterBlock.*;
 public class RegisterItem {
 
     public static final ItemBlock ITEM_SPECTRAL_SOLAR = new ItemBlock(SPECTRAL_SOLAR);
+    public static final ItemBlock ITEM_TITANIUM = new ItemBlock(TITANIUM);
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(ELECTRONIC_SOLAR);
     public static final ItemBlock ITEM_SINGULAR_SOLAR = new ItemBlock(SINGULAR_SOLAR);
     public static final DataKnife DATA_KNIFE = new DataKnife();
@@ -36,6 +37,8 @@ public class RegisterItem {
         registry.register(TITANIUM_INGOT);
         ITEM_SPECTRAL_SOLAR.setRegistryName(ITEM_SPECTRAL_SOLAR.getBlock().getRegistryName());
         registry.register(ITEM_SPECTRAL_SOLAR);
+        ITEM_TITANIUM.setRegistryName(ITEM_TITANIUM.getBlock().getRegistryName());
+        registry.register(ITEM_TITANIUM);
         ITEM_ELECTRONIC_SOLAR.setRegistryName(ITEM_ELECTRONIC_SOLAR.getBlock().getRegistryName());
         registry.register(ITEM_ELECTRONIC_SOLAR);
         ITEM_SINGULAR_SOLAR.setRegistryName(ITEM_SINGULAR_SOLAR.getBlock().getRegistryName());
@@ -47,6 +50,7 @@ public class RegisterItem {
     public static void registerModels(ModelRegistryEvent event) {
         registerModel(DATA_KNIFE);
         registerModel(TITANIUM_INGOT);
+        registerModel(ITEM_TITANIUM);
         registerModel(TITANIUM_SWORD);
         registerModel(ITEM_SPECTRAL_SOLAR);
         registerModel(ITEM_ELECTRONIC_SOLAR);
@@ -59,5 +63,4 @@ public class RegisterItem {
         ModelLoader.setCustomModelResourceLocation(item, 0, modelResourceLocation);
     }
 
-    public static final Item.ToolMaterial TITANIUM_TOOL_MATERIAL = EnumHelper.addToolMaterial("TITANIUM",3,2048,12.0F,22.0F,30);
 }

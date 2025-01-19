@@ -6,7 +6,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
 import com.cac.mpn.item.ModTabs;
 public class Titanium_sword extends ItemSword {
-    public static final Item.ToolMaterial TITANIUM_SWORD = EnumHelper.addToolMaterial("DATA",3, 255, 5.5F, 1.5F, 14);
+    public static final Item.ToolMaterial TITANIUM_SWORD = EnumHelper.addToolMaterial("TITAN",3, 2048, 10.0F, 1.5F, 14);
     public Titanium_sword() {
         super(TITANIUM_SWORD);
         setRegistryName("titanium_sword");
