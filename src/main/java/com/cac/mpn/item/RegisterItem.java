@@ -50,6 +50,7 @@ public class RegisterItem {
         registry.register(ITEM_SINGULAR_SOLAR);
     }
 
+
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void registerModels(ModelRegistryEvent event) {
