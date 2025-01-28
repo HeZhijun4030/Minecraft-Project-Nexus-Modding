@@ -24,8 +24,8 @@ import static com.cac.mpn.Block.RegisterBlock.SINGULAR_SOLAR;
 
 @Mod.EventBusSubscriber
 public class RegisterItem {
-    public static final Item.ToolMaterial TITANIUM_SWORD_MATERIAL = EnumHelper.addToolMaterial("TITANIUM", 1, 3, 1.0F, 12.0F, 10);
-
+    public static final Item.ToolMaterial DATA_KNIFE_MATERIAL = EnumHelper.addToolMaterial("DATA", 3, 2048, 45.0F, 1.0F, 10);
+    public static final Item.ToolMaterial TITANIUM_SWORD_MATERIAL = EnumHelper.addToolMaterial("TITANIUM", 3, 2048, 12.0F, 1.0F, 10);
     public static final ItemBlock ITEM_SPECTRAL_SOLAR = new ItemBlock(SPECTRAL_SOLAR);
     public static final ItemBlock ITEM_TITANIUM = new ItemBlock(TITANIUM);
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(ELECTRONIC_SOLAR);
