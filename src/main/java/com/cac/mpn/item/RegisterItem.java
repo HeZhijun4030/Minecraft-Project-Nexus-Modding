@@ -1,6 +1,7 @@
 package com.cac.mpn.item;
 
 import com.cac.mpn.item.Item_Swords.DataKnife;
+import com.cac.mpn.item.Item_Swords.Data_ingot;
 import com.cac.mpn.item.Item_Swords.Titanium_ingot;
 import com.cac.mpn.item.Item_Swords.Titanium_sword;
 import net.minecraft.block.material.Material;
@@ -24,8 +25,8 @@ import static com.cac.mpn.Block.RegisterBlock.SINGULAR_SOLAR;
 
 @Mod.EventBusSubscriber
 public class RegisterItem {
-    public static final Item.ToolMaterial DATA_KNIFE_MATERIAL = EnumHelper.addToolMaterial("DATA", 3, 2048, 45.0F, 1.0F, 10);
-    public static final Item.ToolMaterial TITANIUM_SWORD_MATERIAL = EnumHelper.addToolMaterial("TITANIUM", 3, 2048, 12.0F, 1.0F, 10);
+    public static final Item.ToolMaterial DATA_KNIFE_MATERIAL = EnumHelper.addToolMaterial("DATA", 1, 2048, 1.0F, 45.0F, 10);
+    public static final Item.ToolMaterial TITANIUM_SWORD_MATERIAL = EnumHelper.addToolMaterial("TITANIUM", 1, 1024, 1.6F, 12.0F, 10);
     public static final ItemBlock ITEM_SPECTRAL_SOLAR = new ItemBlock(SPECTRAL_SOLAR);
     public static final ItemBlock ITEM_TITANIUM = new ItemBlock(TITANIUM);
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(ELECTRONIC_SOLAR);
@@ -33,13 +34,14 @@ public class RegisterItem {
     public static final DataKnife DATA_KNIFE = new DataKnife();
     public static final Titanium_sword TITANIUM_SWORD = new Titanium_sword();
     public static final Titanium_ingot TITANIUM_INGOT = new Titanium_ingot();
-
+    public static final Data_ingot DATA_INGOT = new Data_ingot();
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
         registry.register(DATA_KNIFE);
         registry.register(TITANIUM_SWORD);
         registry.register(TITANIUM_INGOT);
+        registry.register(DATA_INGOT);
         ITEM_SPECTRAL_SOLAR.setRegistryName(ITEM_SPECTRAL_SOLAR.getBlock().getRegistryName());
         registry.register(ITEM_SPECTRAL_SOLAR);
         ITEM_TITANIUM.setRegistryName(ITEM_TITANIUM.getBlock().getRegistryName());
@@ -60,6 +62,7 @@ public class RegisterItem {
         registerModel(ITEM_SPECTRAL_SOLAR);
         registerModel(ITEM_ELECTRONIC_SOLAR);
         registerModel(ITEM_SINGULAR_SOLAR);
+        registerModel(DATA_INGOT);
     }
 
     @SideOnly(Side.CLIENT)
