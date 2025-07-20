@@ -1,17 +1,12 @@
 // com/cac/mpn/power/core/AbstractGeneratorTileEntity.java
 package com.cac.mpn.power.core;
 
-/**
- * 发电设备基类
- */
 public abstract class AbstractGeneratorTileEntity extends AbstractPowerTileEntity implements IPowerProvider {
     protected AbstractGeneratorTileEntity(long capacity) {
         super(capacity);
     }
 
-    /**
-     * 每tick发电逻辑
-     */
+
     protected abstract void generatePower();
 
     @Override
