@@ -17,6 +17,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 
+import java.util.Objects;
+
 @Mod.EventBusSubscriber
 public class RegisterItem {
     public static final Item.ToolMaterial DATA_KNIFE_MATERIAL = EnumHelper.addToolMaterial("DATA", 1, 2048, 1.0F, 45.0F, 10);
@@ -52,7 +54,7 @@ public class RegisterItem {
     }
 
     private static void registerItemBlock(IForgeRegistry<Item> registry, ItemBlock itemBlock) {
-        itemBlock.setRegistryName(itemBlock.getBlock().getRegistryName());
+        itemBlock.setRegistryName(Objects.requireNonNull(itemBlock.getBlock().getRegistryName()));
         registry.register(itemBlock);
     }
 
