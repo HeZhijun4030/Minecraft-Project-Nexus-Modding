@@ -72,6 +72,7 @@ public class RegisterItem {
         registerModel(ITEM_STEAM_GENERATOR);
         registerModel(ITEM_ZINC_WIRE);
         registerModel(ITEM_ELECTRIC_FURNACE);
+
     }
 
     @SideOnly(Side.CLIENT)

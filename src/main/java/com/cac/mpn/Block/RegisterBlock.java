@@ -23,6 +23,13 @@ public class RegisterBlock {
     public static final ElectricFurnace ELECTRIC_FURNACE = new ElectricFurnace();
     public static final BlockZincWire BLOCK_ZINC_WIRE = new BlockZincWire();
     public static final BlockElectricFurnace BLOCK_ELECTRIC_FURNACE = new BlockElectricFurnace();
+    public static final Block ZINC1 = new net.minecraft.block.Block(net.minecraft.block.material.Material.IRON) {{
+        setUnlocalizedName("zinc1");
+        setRegistryName("zinc1");
+        setHardness(1.0F);
+        setResistance(5.0F);
+        setCreativeTab(net.minecraft.creativetab.CreativeTabs.BUILDING_BLOCKS);
+    }};
 
 
     @SubscribeEvent
@@ -35,5 +42,6 @@ public class RegisterBlock {
         registry.register(STEAM_GENERATOR);
         registry.register(BLOCK_ZINC_WIRE);
         registry.register(BLOCK_ELECTRIC_FURNACE);
+        registry.register(ZINC1);
     }
 }
