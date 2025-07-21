@@ -1,6 +1,10 @@
 package com.cac.mpn.Block;
 
 
+import com.cac.mpn.power.devices.ZincWire;
+import com.cac.mpn.power.devices.ElectricFurnace;
+import com.cac.mpn.Block.BlockZincWire;
+import com.cac.mpn.Block.BlockElectricFurnace;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
@@ -15,6 +19,10 @@ public class RegisterBlock {
     public static final Singular_solar SINGULAR_SOLAR = new Singular_solar();
     public static final Titanium TITANIUM = new Titanium();
     public static final BlockSteamGenerator STEAM_GENERATOR = new BlockSteamGenerator();
+    public static final ZincWire ZINC_WIRE = new ZincWire();
+    public static final ElectricFurnace ELECTRIC_FURNACE = new ElectricFurnace();
+    public static final BlockZincWire BLOCK_ZINC_WIRE = new BlockZincWire();
+    public static final BlockElectricFurnace BLOCK_ELECTRIC_FURNACE = new BlockElectricFurnace();
 
 
     @SubscribeEvent
@@ -25,5 +33,7 @@ public class RegisterBlock {
         registry.register(SINGULAR_SOLAR);
         registry.register(TITANIUM);
         registry.register(STEAM_GENERATOR);
+        registry.register(BLOCK_ZINC_WIRE);
+        registry.register(BLOCK_ELECTRIC_FURNACE);
     }
 }

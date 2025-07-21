@@ -63,16 +63,15 @@ public class SteamGenerator extends SimplePowerTileEntity implements ISidedInven
                 if (waterTickCounter >= 20) {
                     waterTickCounter = 0;
                     setStoredPower(getStoredPower() + POWER_PER_SECOND);
+                    dirty = true;
                 }
-                dirty = true;
             } else {
                 waterTickCounter = 0;
             }
         } else {
-
             ItemStack fuel = inventory.get(0);
             if (!fuel.isEmpty() && waterTank.getFluidAmount() >= WATER_CONSUME_PER_TICK) {
-                int time = TileEntityFurnace.getItemBurnTime(fuel);
+                int time = net.minecraft.tileentity.TileEntityFurnace.getItemBurnTime(fuel);
                 if (time > 0) {
                     burnTimeTotal = burnTime = time;
                     fuel.shrink(1);
@@ -80,7 +79,12 @@ public class SteamGenerator extends SimplePowerTileEntity implements ISidedInven
                 }
             }
         }
-        if (dirty) markDirty();
+        if (dirty) {
+            markDirty();
+            if (world != null && !world.isRemote) {
+                world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
+            }
+        }
     }
 
     @Override
@@ -177,6 +181,21 @@ public class SteamGenerator extends SimplePowerTileEntity implements ISidedInven
     }
 
     // --- NBT ---
+    @Override
+    public NBTTagCompound getUpdateTag() {
+        return writeToNBT(new NBTTagCompound());
+    }
+
+    @Override
+    public net.minecraft.network.play.server.SPacketUpdateTileEntity getUpdatePacket() {
+        return new net.minecraft.network.play.server.SPacketUpdateTileEntity(pos, 1, getUpdateTag());
+    }
+
+    @Override
+    public void onDataPacket(net.minecraft.network.NetworkManager net, net.minecraft.network.play.server.SPacketUpdateTileEntity pkt) {
+        readFromNBT(pkt.getNbtCompound());
+    }
+
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);

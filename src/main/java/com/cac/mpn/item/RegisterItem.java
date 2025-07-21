@@ -2,6 +2,8 @@ package com.cac.mpn.item;
 
 import com.cac.mpn.Block.RegisterBlock;
 import com.cac.mpn.item.Item_Swords.*;
+import com.cac.mpn.Block.BlockZincWire;
+import com.cac.mpn.Block.BlockElectricFurnace;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -24,6 +26,8 @@ public class RegisterItem {
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(RegisterBlock.ELECTRONIC_SOLAR);
     public static final ItemBlock ITEM_SINGULAR_SOLAR = new ItemBlock(RegisterBlock.SINGULAR_SOLAR);
     public static final ItemBlock ITEM_STEAM_GENERATOR = new ItemBlock(RegisterBlock.STEAM_GENERATOR);
+    public static final ItemBlock ITEM_ZINC_WIRE = new ItemBlock(RegisterBlock.BLOCK_ZINC_WIRE);
+    public static final ItemBlock ITEM_ELECTRIC_FURNACE = new ItemBlock(RegisterBlock.BLOCK_ELECTRIC_FURNACE);
     public static final DataKnife DATA_KNIFE = new DataKnife();
     public static final Titanium_sword TITANIUM_SWORD = new Titanium_sword();
     public static final Titanium_ingot TITANIUM_INGOT = new Titanium_ingot();
@@ -43,7 +47,8 @@ public class RegisterItem {
         registerItemBlock(registry, ITEM_ELECTRONIC_SOLAR);
         registerItemBlock(registry, ITEM_SINGULAR_SOLAR);
         registerItemBlock(registry, ITEM_STEAM_GENERATOR);
-
+        registerItemBlock(registry, ITEM_ZINC_WIRE);
+        registerItemBlock(registry, ITEM_ELECTRIC_FURNACE);
     }
 
     private static void registerItemBlock(IForgeRegistry<Item> registry, ItemBlock itemBlock) {
@@ -63,6 +68,8 @@ public class RegisterItem {
         registerModel(ITEM_SINGULAR_SOLAR);
         registerModel(DATA_INGOT);
         registerModel(ITEM_STEAM_GENERATOR);
+        registerModel(ITEM_ZINC_WIRE);
+        registerModel(ITEM_ELECTRIC_FURNACE);
     }
 
     @SideOnly(Side.CLIENT)

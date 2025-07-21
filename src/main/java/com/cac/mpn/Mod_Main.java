@@ -17,6 +17,8 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 import org.apache.logging.log4j.Logger;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.util.ResourceLocation;
 
 @Mod(modid = Mod_Main.MODID, name = Mod_Main.NAME, version = Mod_Main.VERSION)
 public class Mod_Main implements IGuiHandler {
@@ -35,6 +37,9 @@ public class Mod_Main implements IGuiHandler {
         SimplePowerRegistry.initialize();
         net.minecraftforge.fml.common.network.NetworkRegistry.INSTANCE.registerGuiHandler(this, this);
         logger.info("Power system initialized");
+        // 注册TileEntity，防止崩溃
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ElectricFurnace.class, new ResourceLocation(MODID, "electric_furnace"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ZincWire.class, new ResourceLocation(MODID, "zinc_wire"));
     }
 
     @EventHandler
@@ -62,17 +67,23 @@ public class Mod_Main implements IGuiHandler {
 
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
-        if (te instanceof SteamGenerator) {
-            return new ContainerSteamGenerator(player.inventory, (SteamGenerator) te);
+        net.minecraft.tileentity.TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+        if (te instanceof com.cac.mpn.power.devices.SteamGenerator) {
+            return new com.cac.mpn.power.devices.ContainerSteamGenerator(player.inventory, (com.cac.mpn.power.devices.SteamGenerator) te);
+        }
+        if (te instanceof com.cac.mpn.power.devices.ElectricFurnace) {
+            return new com.cac.mpn.power.devices.ContainerElectricFurnace(player.inventory, (com.cac.mpn.power.devices.ElectricFurnace) te);
         }
         return null;
     }
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        TileEntity te = world.getTileEntity(new BlockPos(x, y, z));
-        if (te instanceof SteamGenerator) {
-            return new GuiSteamGenerator(player.inventory, (SteamGenerator) te);
+        net.minecraft.tileentity.TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
+        if (te instanceof com.cac.mpn.power.devices.SteamGenerator) {
+            return new com.cac.mpn.power.devices.GuiSteamGenerator(player.inventory, (com.cac.mpn.power.devices.SteamGenerator) te);
+        }
+        if (te instanceof com.cac.mpn.power.devices.ElectricFurnace) {
+            return new com.cac.mpn.power.devices.GuiElectricFurnace(player.inventory, (com.cac.mpn.power.devices.ElectricFurnace) te);
         }
         return null;
     }

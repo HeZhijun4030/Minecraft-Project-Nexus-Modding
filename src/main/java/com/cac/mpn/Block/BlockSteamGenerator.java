@@ -16,12 +16,12 @@ import net.minecraft.world.World;
 
 public class BlockSteamGenerator extends BlockContainer {
     public BlockSteamGenerator() {
-        super(Material.IRON);
+        super(net.minecraft.block.material.Material.IRON);
         setUnlocalizedName("steam_generator");
         setRegistryName("steam_generator");
         setHardness(2.0F);
         setResistance(10.0F);
-        setCreativeTab(CreativeTabs.MISC);
+        setCreativeTab(net.minecraft.creativetab.CreativeTabs.MISC); // 确保加入创造标签
     }
 
     @Override
