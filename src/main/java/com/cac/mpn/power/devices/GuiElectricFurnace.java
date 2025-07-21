@@ -25,7 +25,9 @@ public class GuiElectricFurnace extends GuiContainer {
         String name = new TextComponentTranslation("container.electric_furnace").getUnformattedText();
         this.fontRenderer.drawString(name, 8, 6, 4210752);
         this.fontRenderer.drawString(playerInv.getDisplayName().getUnformattedText(), 8, ySize - 96 + 2, 4210752);
-        this.fontRenderer.drawString("电量: " + tile.getStoredPower() + "/" + tile.getCapacity() + " RF", 8, 20, Color.GREEN.getRGB());
+        float powerK = tile.getStoredPower() / 1000.0f;
+        float capK = tile.getCapacity() / 1000.0f;
+        this.fontRenderer.drawString(String.format("电量: %.1fk/%.1fk RF", powerK, capK), 8, 20, Color.GREEN.getRGB());
     }
 
     @Override

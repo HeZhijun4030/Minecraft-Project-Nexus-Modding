@@ -21,7 +21,7 @@ public class PowerNetwork {
             device.onTick();
         }
 
-        distributePower(generators, consumers);
+        // distributePower(generators, consumers); // 禁用自动能量分配
     }
     
     private void distributePower(List<IPowerDevice> generators, List<IPowerDevice> consumers) {

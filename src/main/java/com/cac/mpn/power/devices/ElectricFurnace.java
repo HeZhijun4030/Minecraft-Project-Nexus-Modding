@@ -21,6 +21,7 @@ public class ElectricFurnace extends SimplePowerTileEntity implements ISidedInve
     private int cookTime = 0;
     private int cookTimeTotal = COOK_TIME;
     private boolean wasBurning = false;
+    private long lastSyncedPower = -1;
 
     public ElectricFurnace() {
         super(POWER_CAPACITY, IPowerDevice.DeviceType.CONSUMER);
@@ -36,15 +37,17 @@ public class ElectricFurnace extends SimplePowerTileEntity implements ISidedInve
         boolean burning = getStoredPower() >= POWER_PER_TICK && canSmelt;
         if (burning) {
             setStoredPower(getStoredPower() - POWER_PER_TICK);
+            if (cookTime == 0 && canSmelt) {
+                // 立即消耗原料（与原版一致）
+                input.shrink(1);
+                dirty = true;
+            }
             cookTime++;
             if (cookTime >= cookTimeTotal) {
-                if (canSmelt) {
-                    if (output.isEmpty()) {
-                        inventory.set(2, result.copy());
-                    } else {
-                        output.grow(result.getCount());
-                    }
-                    input.shrink(1);
+                if (output.isEmpty()) {
+                    inventory.set(2, result.copy());
+                } else {
+                    output.grow(result.getCount());
                 }
                 cookTime = 0;
                 dirty = true;
@@ -55,6 +58,11 @@ public class ElectricFurnace extends SimplePowerTileEntity implements ISidedInve
         if (wasBurning != burning) {
             dirty = true;
             wasBurning = burning;
+        }
+        // 实时同步能量变化
+        if (lastSyncedPower != getStoredPower()) {
+            dirty = true;
+            lastSyncedPower = getStoredPower();
         }
         if (dirty) {
             markDirty();
