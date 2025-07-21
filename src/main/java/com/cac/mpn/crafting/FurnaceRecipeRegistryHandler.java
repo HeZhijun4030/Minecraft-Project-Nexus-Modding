@@ -10,6 +10,10 @@ public class FurnaceRecipeRegistryHandler {
     public static void register() {
         GameRegistry.addSmelting(RegisterBlock.TITANIUM,
                 new ItemStack(RegisterItem.TITANIUM_INGOT), 0.1f);
+        GameRegistry.addSmelting(RegisterBlock.COPPER,
+                new ItemStack(RegisterItem.COPPER_INGOT), 0.1f);
+        GameRegistry.addSmelting(RegisterBlock.ZINC,
+                new ItemStack(RegisterItem.ZINC_INGOT), 0.1f);
 
     }
 }

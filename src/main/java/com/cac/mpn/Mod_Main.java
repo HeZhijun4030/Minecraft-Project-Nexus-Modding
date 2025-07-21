@@ -4,6 +4,7 @@ import com.cac.mpn.power.SimplePowerRegistry;
 import com.cac.mpn.power.devices.ContainerSteamGenerator;
 import com.cac.mpn.power.devices.GuiSteamGenerator;
 import com.cac.mpn.power.devices.SteamGenerator;
+import com.cac.mpn.crafting.FurnaceRecipeRegistryHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
@@ -40,6 +41,10 @@ public class Mod_Main implements IGuiHandler {
         // 注册TileEntity，防止崩溃
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ElectricFurnace.class, new ResourceLocation(MODID, "electric_furnace"));
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ZincWire.class, new ResourceLocation(MODID, "zinc_wire"));
+        // 注册矿石生成
+        com.cac.mpn.Block.ModWorldGen.registerWorldGen();
+        // 注册熔炼配方
+        FurnaceRecipeRegistryHandler.register();
     }
 
     @EventHandler

@@ -18,9 +18,19 @@ public class ModWorldGen {
 
     public static void registerWorldGen() {
 
-        WorldGenMinable yourOreGen = new WorldGenMinable(
+        WorldGenMinable titaniumGen = new WorldGenMinable(
                 new ItemBlock(RegisterBlock.TITANIUM).getBlock().getDefaultState(),
                 8,
+                BlockMatcher.forBlock(Blocks.STONE)
+        );
+        WorldGenMinable copperGen = new WorldGenMinable(
+                new ItemBlock(RegisterBlock.COPPER).getBlock().getDefaultState(),
+                10,
+                BlockMatcher.forBlock(Blocks.STONE)
+        );
+        WorldGenMinable zincGen = new WorldGenMinable(
+                new ItemBlock(RegisterBlock.ZINC).getBlock().getDefaultState(),
+                10,
                 BlockMatcher.forBlock(Blocks.STONE)
         );
 
@@ -30,7 +40,9 @@ public class ModWorldGen {
             public void generate(Random random, int chunkX, int chunkZ, World world,
                                  IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
                 if (world.provider.getDimension() == 0) { // 0 = 主世界
-                    runGenerator(yourOreGen, world, random, chunkX, chunkZ, 20, 0, 64);
+                    runGenerator(titaniumGen, world, random, chunkX, chunkZ, 20, 0, 64);
+                    runGenerator(copperGen, world, random, chunkX, chunkZ, 30, 0, 64);
+                    runGenerator(zincGen, world, random, chunkX, chunkZ, 30, 0, 64);
                 }
             }
         }, 0);

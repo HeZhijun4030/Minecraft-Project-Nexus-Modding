@@ -1,5 +1,7 @@
 package com.cac.mpn.Block;
 
+import com.cac.mpn.item.ModTabs;
+
 public class BlockElectricFurnace extends net.minecraft.block.BlockContainer {
     public BlockElectricFurnace() {
         super(net.minecraft.block.material.Material.IRON);
@@ -7,7 +9,7 @@ public class BlockElectricFurnace extends net.minecraft.block.BlockContainer {
         setRegistryName("electric_furnace");
         setHardness(2.0F);
         setResistance(10.0F);
-        setCreativeTab(net.minecraft.creativetab.CreativeTabs.MISC);
+        this.setCreativeTab(ModTabs.MPN_TAB);
     }
     @Override
     public net.minecraft.tileentity.TileEntity createNewTileEntity(net.minecraft.world.World worldIn, int meta) {

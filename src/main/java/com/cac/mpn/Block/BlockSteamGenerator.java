@@ -1,5 +1,6 @@
 package com.cac.mpn.Block;
 
+import com.cac.mpn.item.ModTabs;
 import com.cac.mpn.power.devices.SteamGenerator;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -21,7 +22,7 @@ public class BlockSteamGenerator extends BlockContainer {
         setRegistryName("steam_generator");
         setHardness(2.0F);
         setResistance(10.0F);
-        setCreativeTab(net.minecraft.creativetab.CreativeTabs.MISC); // 确保加入创造标签
+        this.setCreativeTab(ModTabs.MPN_TAB);
     }
 
     @Override

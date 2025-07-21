@@ -37,11 +37,6 @@ public class ElectricFurnace extends SimplePowerTileEntity implements ISidedInve
         boolean burning = getStoredPower() >= POWER_PER_TICK && canSmelt;
         if (burning) {
             setStoredPower(getStoredPower() - POWER_PER_TICK);
-            if (cookTime == 0 && canSmelt) {
-                // 立即消耗原料（与原版一致）
-                input.shrink(1);
-                dirty = true;
-            }
             cookTime++;
             if (cookTime >= cookTimeTotal) {
                 if (output.isEmpty()) {
@@ -49,6 +44,7 @@ public class ElectricFurnace extends SimplePowerTileEntity implements ISidedInve
                 } else {
                     output.grow(result.getCount());
                 }
+                input.shrink(1);
                 cookTime = 0;
                 dirty = true;
             }

@@ -3,14 +3,13 @@ import com.cac.mpn.item.ModTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class Titanium extends Block {
-    public Titanium()
-    {
+public class Copper extends Block {
+    public Copper() {
         super(Material.IRON);
-        this.setUnlocalizedName("titanium");
-        this.setRegistryName("titanium");
-        this.setHardness(5.0F);
+        this.setUnlocalizedName("copper");
+        this.setRegistryName("copper");
+        this.setHardness(4.0F);
         this.setCreativeTab(ModTabs.MPN_TAB);
         this.setHarvestLevel("pickaxe", 2);
     }
-}
+} 
