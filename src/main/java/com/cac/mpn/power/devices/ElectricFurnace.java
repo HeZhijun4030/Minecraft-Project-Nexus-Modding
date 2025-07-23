@@ -30,6 +30,21 @@ public class ElectricFurnace extends SimplePowerTileEntity implements ISidedInve
     @Override
     public void onTick() {
         boolean dirty = false;
+        // 原电池能量拉取逻辑
+        ItemStack battery = inventory.get(1);
+        if (battery != null && battery.getItem() instanceof com.cac.mpn.item.ItemPrimaryBattery) {
+            long batteryEnergy = com.cac.mpn.item.ItemPrimaryBattery.getEnergy(battery);
+            long need = Math.min(POWER_PER_TICK * 2, getCapacity() - getStoredPower()); // 一次最多拉2tick能量
+            if (batteryEnergy > 0 && need > 0) {
+                long transfer = Math.min(need, batteryEnergy);
+                setStoredPower(getStoredPower() + transfer);
+                com.cac.mpn.item.ItemPrimaryBattery.setEnergy(battery, batteryEnergy - transfer);
+                dirty = true;
+                if (com.cac.mpn.item.ItemPrimaryBattery.getEnergy(battery) <= 0) {
+                    inventory.set(1, ItemStack.EMPTY);
+                }
+            }
+        }
         ItemStack input = inventory.get(0);
         ItemStack output = inventory.get(2);
         ItemStack result = input.isEmpty() ? ItemStack.EMPTY : FurnaceRecipes.instance().getSmeltingResult(input);

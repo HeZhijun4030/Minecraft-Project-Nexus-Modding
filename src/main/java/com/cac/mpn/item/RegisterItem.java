@@ -40,7 +40,13 @@ public class RegisterItem {
     public static final Titanium_sword TITANIUM_SWORD = new Titanium_sword();
     public static final Titanium_ingot TITANIUM_INGOT = new Titanium_ingot();
     public static final Data_ingot DATA_INGOT = new Data_ingot();
-
+    public static final ZincPlate ZINC_PLATE = new ZincPlate();
+    public static final AluminumPlate ALUMINUM_PLATE = new AluminumPlate();
+    public static final CopperPlate COPPER_PLATE = new CopperPlate();
+    public static final ItemPrimaryBattery PRIMARY_BATTERY = new ItemPrimaryBattery();
+    public static final Hammer HAMMER = new Hammer();
+    public static final CircuitBoard CIRCUIT_BOARD = new CircuitBoard();
+    public static final HydraulicShears HYDRAULIC_SHEARS = new HydraulicShears();
 
 
     @SubscribeEvent
@@ -61,6 +67,13 @@ public class RegisterItem {
         registerItemBlock(registry, ITEM_ZINC);
         registry.register(COPPER_INGOT);
         registry.register(ZINC_INGOT);
+        registry.register(ZINC_PLATE);
+        registry.register(ALUMINUM_PLATE);
+        registry.register(COPPER_PLATE);
+        registry.register(PRIMARY_BATTERY);
+        registry.register(HAMMER);
+        registry.register(CIRCUIT_BOARD);
+        registry.register(HYDRAULIC_SHEARS);
     }
 
     private static void registerItemBlock(IForgeRegistry<Item> registry, ItemBlock itemBlock) {
@@ -82,7 +95,13 @@ public class RegisterItem {
         registerModel(ITEM_STEAM_GENERATOR);
         registerModel(ITEM_ZINC_WIRE);
         registerModel(ITEM_ELECTRIC_FURNACE);
-
+        registerModel(ZINC_PLATE);
+        registerModel(ALUMINUM_PLATE);
+        registerModel(COPPER_PLATE);
+        registerModel(PRIMARY_BATTERY);
+        registerModel(HAMMER);
+        registerModel(CIRCUIT_BOARD);
+        registerModel(HYDRAULIC_SHEARS);
     }
 
     @SideOnly(Side.CLIENT)

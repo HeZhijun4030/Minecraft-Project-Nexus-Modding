@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XZX",
+    "ARA",
+    "XCX"
+  ],
+  "key": {
+    "X": {"item": "minecraft:air"},
+    "Z": {"item": "mpn:zinc_plate"},
+    "A": {"item": "mpn:aluminum_plate"},
+    "R": {"item": "minecraft:redstone"},
+    "C": {"item": "mpn:copper_plate"}
+  },
+  "result": {
+    "item": "mpn:primary_battery",
+    "count": 1
+  }
+} 

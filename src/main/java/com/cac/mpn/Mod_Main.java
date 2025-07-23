@@ -6,6 +6,7 @@ import com.cac.mpn.power.devices.GuiSteamGenerator;
 import com.cac.mpn.power.devices.SteamGenerator;
 import com.cac.mpn.crafting.FurnaceRecipeRegistryHandler;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -47,9 +48,6 @@ public class Mod_Main implements IGuiHandler {
         FurnaceRecipeRegistryHandler.register();
     }
 
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
-    }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
@@ -91,5 +89,13 @@ public class Mod_Main implements IGuiHandler {
             return new com.cac.mpn.power.devices.GuiElectricFurnace(player.inventory, (com.cac.mpn.power.devices.ElectricFurnace) te);
         }
         return null;
+    }
+
+
+    @EventHandler
+    public void init(FMLInitializationEvent event)
+    {
+        FurnaceRecipeRegistryHandler.register();
+        logger.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
     }
 }
