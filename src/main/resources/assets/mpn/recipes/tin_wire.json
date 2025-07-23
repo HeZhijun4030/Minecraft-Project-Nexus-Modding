@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    " H ",
+    "TTT"
+  ],
+  "key": {
+    "T": { "item": "mpn:tin_plate" },
+    "H": { "item": "mpn:hydraulic_shears", "data": 32767 }
+  },
+  "result": {
+    "item": "mpn:tin_wire",
+    "count": 8
+  }
+} 

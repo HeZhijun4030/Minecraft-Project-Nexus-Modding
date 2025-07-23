@@ -33,6 +33,17 @@ public class ModWorldGen {
                 10,
                 BlockMatcher.forBlock(Blocks.STONE)
         );
+        WorldGenMinable tinGen = new WorldGenMinable(
+                new ItemBlock(RegisterBlock.TIN).getBlock().getDefaultState(),
+                8,
+                BlockMatcher.forBlock(Blocks.STONE)
+        );
+        WorldGenMinable aluminumGen = new WorldGenMinable(
+                new ItemBlock(
+                        RegisterBlock.ALUMINUM).getBlock().getDefaultState(),
+                8,
+                BlockMatcher.forBlock(Blocks.STONE)
+        );
 
         // 注册到世界生成
         GameRegistry.registerWorldGenerator(new IWorldGenerator() {
@@ -43,6 +54,8 @@ public class ModWorldGen {
                     runGenerator(titaniumGen, world, random, chunkX, chunkZ, 20, 0, 64);
                     runGenerator(copperGen, world, random, chunkX, chunkZ, 30, 0, 64);
                     runGenerator(zincGen, world, random, chunkX, chunkZ, 30, 0, 64);
+                    runGenerator(tinGen, world, random, chunkX, chunkZ, 20, 0, 64);
+                    runGenerator(aluminumGen, world, random, chunkX, chunkZ, 20, 0, 64);
                 }
             }
         }, 0);

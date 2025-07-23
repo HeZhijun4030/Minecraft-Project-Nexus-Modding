@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "F F",
+    "IRI"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "F": { "item": "minecraft:furnace" },
+    "R": { "item": "minecraft:redstone" }
+  },
+  "result": {
+    "item": "mpn:steam_generator",
+    "count": 1
+  }
+} 

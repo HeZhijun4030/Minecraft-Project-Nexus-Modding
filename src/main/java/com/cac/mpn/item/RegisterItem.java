@@ -32,8 +32,10 @@ public class RegisterItem {
     public static final ItemBlock ITEM_STEAM_GENERATOR = new ItemBlock(RegisterBlock.STEAM_GENERATOR);
     public static final ItemBlock ITEM_ZINC_WIRE = new ItemBlock(RegisterBlock.BLOCK_ZINC_WIRE);
     public static final ItemBlock ITEM_ELECTRIC_FURNACE = new ItemBlock(RegisterBlock.BLOCK_ELECTRIC_FURNACE);
-    public static final ItemBlock ITEM_COPPER = new ItemBlock(com.cac.mpn.Block.RegisterBlock.COPPER);
-    public static final ItemBlock ITEM_ZINC = new ItemBlock(com.cac.mpn.Block.RegisterBlock.ZINC);
+    public static final ItemBlock ITEM_COPPER = new ItemBlock(RegisterBlock.COPPER);
+    public static final ItemBlock ITEM_ZINC = new ItemBlock(RegisterBlock.ZINC);
+    public static final ItemBlock ITEM_ALLOY_MACHINE = new ItemBlock(RegisterBlock.ALLOY_MACHINE);
+    public static final ItemBlock ITEM_COPPER_CABLE = new ItemBlock(RegisterBlock.BLOCK_COPPER_CABLE);
     public static final CopperIngot COPPER_INGOT = new CopperIngot();
     public static final ZincIngot ZINC_INGOT = new ZincIngot();
     public static final DataKnife DATA_KNIFE = new DataKnife();
@@ -47,6 +49,11 @@ public class RegisterItem {
     public static final Hammer HAMMER = new Hammer();
     public static final CircuitBoard CIRCUIT_BOARD = new CircuitBoard();
     public static final HydraulicShears HYDRAULIC_SHEARS = new HydraulicShears();
+    public static final BasicCircuitCore BASIC_CIRCUIT_CORE = new BasicCircuitCore();
+    public static final CopperWire COPPER_WIRE = new CopperWire();
+    public static final TinWire TIN_WIRE = new TinWire();
+    public static final BasicIronShell BASIC_IRON_SHELL = new BasicIronShell();
+    public static final TitaniumAlloyIngot TITANIUM_ALLOY_INGOT = new TitaniumAlloyIngot();
 
 
     @SubscribeEvent
@@ -65,6 +72,9 @@ public class RegisterItem {
         registerItemBlock(registry, ITEM_ELECTRIC_FURNACE);
         registerItemBlock(registry, ITEM_COPPER);
         registerItemBlock(registry, ITEM_ZINC);
+        registerItemBlock(registry, ITEM_ALLOY_MACHINE);
+        registerItemBlock(registry, ITEM_COPPER_CABLE);
+        registry.register(COPPER_WIRE);
         registry.register(COPPER_INGOT);
         registry.register(ZINC_INGOT);
         registry.register(ZINC_PLATE);
@@ -74,6 +84,10 @@ public class RegisterItem {
         registry.register(HAMMER);
         registry.register(CIRCUIT_BOARD);
         registry.register(HYDRAULIC_SHEARS);
+        registry.register(BASIC_CIRCUIT_CORE);
+        registry.register(TIN_WIRE);
+        registry.register(BASIC_IRON_SHELL);
+        registry.register(TITANIUM_ALLOY_INGOT);
     }
 
     private static void registerItemBlock(IForgeRegistry<Item> registry, ItemBlock itemBlock) {
@@ -102,6 +116,13 @@ public class RegisterItem {
         registerModel(HAMMER);
         registerModel(CIRCUIT_BOARD);
         registerModel(HYDRAULIC_SHEARS);
+        registerModel(BASIC_CIRCUIT_CORE);
+        registerModel(COPPER_WIRE);
+        registerModel(TIN_WIRE);
+        registerModel(BASIC_IRON_SHELL);
+        registerModel(ITEM_ALLOY_MACHINE);
+        registerModel(TITANIUM_ALLOY_INGOT);
+        registerModel(ITEM_COPPER_CABLE);
     }
 
     @SideOnly(Side.CLIENT)

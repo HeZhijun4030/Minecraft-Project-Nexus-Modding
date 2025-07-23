@@ -5,6 +5,8 @@ import com.cac.mpn.power.devices.ZincWire;
 import com.cac.mpn.power.devices.ElectricFurnace;
 import com.cac.mpn.Block.BlockZincWire;
 import com.cac.mpn.Block.BlockElectricFurnace;
+import com.cac.mpn.Block.BlockCopperWire;
+
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
@@ -19,12 +21,14 @@ public class RegisterBlock {
     public static final Singular_solar SINGULAR_SOLAR = new Singular_solar();
     public static final Titanium TITANIUM = new Titanium();
     public static final BlockSteamGenerator STEAM_GENERATOR = new BlockSteamGenerator();
-    public static final ZincWire ZINC_WIRE = new ZincWire();
-    public static final ElectricFurnace ELECTRIC_FURNACE = new ElectricFurnace();
     public static final BlockZincWire BLOCK_ZINC_WIRE = new BlockZincWire();
     public static final BlockElectricFurnace BLOCK_ELECTRIC_FURNACE = new BlockElectricFurnace();
     public static final Copper COPPER = new Copper();
     public static final Zinc ZINC = new Zinc();
+    public static final AlloyMachine ALLOY_MACHINE = new AlloyMachine();
+    public static final Tin TIN = new Tin();
+    public static final Aluminum ALUMINUM = new Aluminum();
+    public static final BlockCopperWire BLOCK_COPPER_CABLE = new BlockCopperWire();
 
 
     @SubscribeEvent
@@ -39,6 +43,10 @@ public class RegisterBlock {
         registry.register(BLOCK_ELECTRIC_FURNACE);
         registry.register(COPPER);
         registry.register(ZINC);
+        registry.register(ALLOY_MACHINE);
+        registry.register(TIN);
+        registry.register(ALUMINUM);
+        registry.register(BLOCK_COPPER_CABLE);
 
     }
 }

@@ -21,6 +21,10 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.text.TextComponentString;
 
 @Mod(modid = Mod_Main.MODID, name = Mod_Main.NAME, version = Mod_Main.VERSION)
 public class Mod_Main implements IGuiHandler {
@@ -40,14 +44,26 @@ public class Mod_Main implements IGuiHandler {
         net.minecraftforge.fml.common.network.NetworkRegistry.INSTANCE.registerGuiHandler(this, this);
         logger.info("Power system initialized");
         // 注册TileEntity，防止崩溃
-        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ElectricFurnace.class, new ResourceLocation(MODID, "electric_furnace"));
-        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ZincWire.class, new ResourceLocation(MODID, "zinc_wire"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.SteamGenerator.class, new ResourceLocation(MODID, "steam_generator_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ElectricFurnace.class, new ResourceLocation(MODID, "electric_furnace_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AlloyMachineTileEntity.class, new ResourceLocation(MODID, "alloy_machine_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ZincWire.class, new ResourceLocation(MODID, "zinc_wire_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.CopperWire.class, new ResourceLocation(MODID, "copper_cable_tile"));
         // 注册矿石生成
         com.cac.mpn.Block.ModWorldGen.registerWorldGen();
         // 注册熔炼配方
         FurnaceRecipeRegistryHandler.register();
+        net.minecraftforge.common.MinecraftForge.EVENT_BUS.register(this);
     }
 
+    @SubscribeEvent
+    public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.player instanceof EntityPlayerMP) {
+            event.player.sendMessage(new TextComponentString(
+                "§a本模组由CIP&CMS团队创作，遵循双方开发者的意志，任何商业服不得魔改，修改或调整矿物生成。配方表问题，如有违反，请在Github上找到Minecraft-Nexus仓库，提交issus，我们将审查该服务器。本mod是CIP&CMS产品，任何人未经允许不得修改。\n当前版本为A轮内测版本，安装该MOD视为同意以上条款，若不同意，请使用录像设备，录制关闭游戏并卸载Mod的视频。"
+            ));
+        }
+    }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
@@ -77,6 +93,9 @@ public class Mod_Main implements IGuiHandler {
         if (te instanceof com.cac.mpn.power.devices.ElectricFurnace) {
             return new com.cac.mpn.power.devices.ContainerElectricFurnace(player.inventory, (com.cac.mpn.power.devices.ElectricFurnace) te);
         }
+        if (te instanceof com.cac.mpn.power.devices.AlloyMachineTileEntity) {
+            return new com.cac.mpn.power.devices.ContainerAlloyMachine(player.inventory, (com.cac.mpn.power.devices.AlloyMachineTileEntity) te);
+        }
         return null;
     }
     @Override
@@ -87,6 +106,9 @@ public class Mod_Main implements IGuiHandler {
         }
         if (te instanceof com.cac.mpn.power.devices.ElectricFurnace) {
             return new com.cac.mpn.power.devices.GuiElectricFurnace(player.inventory, (com.cac.mpn.power.devices.ElectricFurnace) te);
+        }
+        if (te instanceof com.cac.mpn.power.devices.AlloyMachineTileEntity) {
+            return new com.cac.mpn.power.devices.GuiAlloyMachine(player.inventory, (com.cac.mpn.power.devices.AlloyMachineTileEntity) te);
         }
         return null;
     }

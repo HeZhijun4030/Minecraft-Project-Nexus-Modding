@@ -13,8 +13,7 @@ public class SimplePowerRegistry {
         
 
         com.cac.mpn.power.core.SimplePowerSystem.getInstance();
-        registerPowerDevice(com.cac.mpn.power.devices.SteamGenerator.class, "mpn:steam_generator");
-        
+        // 删除重复的TileEntity注册，全部交由Mod_Main.java注册
         initialized = true;
     }
     
