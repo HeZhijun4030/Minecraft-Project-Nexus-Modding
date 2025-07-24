@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "X": { "item": "mpn:data_ingot" },
+    "#": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "mpn:data_ingot_hoe" }
+} 

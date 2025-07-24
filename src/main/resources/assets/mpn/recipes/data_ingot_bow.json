@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " XS",
+    "X S",
+    " XS"
+  ],
+  "key": {
+    "X": { "item": "mpn:data_ingot" },
+    "S": { "item": "minecraft:string" }
+  },
+  "result": { "item": "mpn:data_ingot_bow" }
+} 

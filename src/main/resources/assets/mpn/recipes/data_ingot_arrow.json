@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X",
+    "#",
+    "F"
+  ],
+  "key": {
+    "X": { "item": "mpn:data_ingot" },
+    "#": { "item": "minecraft:stick" },
+    "F": { "item": "minecraft:feather" }
+  },
+  "result": { "item": "mpn:data_ingot_arrow", "count": 4 }
+} 

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX ",
+    "X# ",
+    " # "
+  ],
+  "key": {
+    "X": { "item": "mpn:titanium_alloy_ingot" },
+    "#": { "item": "minecraft:stick" }
+  },
+  "result": { "item": "mpn:titanium_alloy_axe" }
+} 

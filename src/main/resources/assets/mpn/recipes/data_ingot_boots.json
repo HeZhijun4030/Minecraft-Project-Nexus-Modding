@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": { "item": "mpn:data_ingot" }
+  },
+  "result": { "item": "mpn:data_ingot_boots" }
+} 

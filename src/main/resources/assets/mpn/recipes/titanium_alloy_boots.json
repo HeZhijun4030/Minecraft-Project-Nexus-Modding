@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "X X"
+  ],
+  "key": {
+    "X": { "item": "mpn:titanium_alloy_ingot" }
+  },
+  "result": { "item": "mpn:titanium_alloy_boots" }
+} 
