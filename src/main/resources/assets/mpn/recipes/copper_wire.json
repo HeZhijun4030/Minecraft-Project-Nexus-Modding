@@ -1,16 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "CCC",
-    " H ",
-    "CCC"
+    "CCS"
   ],
   "key": {
-    "C": { "item": "mpn:copper_plate" },
-    "H": { "item": "mpn:hydraulic_shears", "data": 32767 }
+    "C": { "item": "mpn:copper_ingot" },
+    "S": { "item": "mpn:hydraulic_shears", "data": 32767 }
   },
   "result": {
-    "item": "mpn:copper_cable",
-    "count": 8
+    "item": "mpn:copper_wire",
+    "count": 4
   }
 } 

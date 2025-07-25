@@ -1,14 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "III",
-    "F F",
-    "IRI"
+    "IEI",
+    "WBW",
+    "TFT"
   ],
   "key": {
     "I": { "item": "minecraft:iron_ingot" },
-    "F": { "item": "minecraft:furnace" },
-    "R": { "item": "minecraft:redstone" }
+    "E": { "item": "mpn:circuit_board" },
+    "W": { "item": "mpn:basic_iron_shell" },
+    "B": { "item": "minecraft:bucket" },
+    "T": { "item": "mpn:titanium_alloy_ingot" },
+    "F": { "item": "minecraft:furnace" }
   },
   "result": {
     "item": "mpn:steam_generator",

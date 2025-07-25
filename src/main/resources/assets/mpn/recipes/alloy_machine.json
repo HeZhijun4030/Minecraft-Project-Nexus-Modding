@@ -1,14 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ITI",
-    "F F",
-    "III"
+    "TTT",
+    "WBW",
+    "FRF"
   ],
   "key": {
-    "I": { "item": "minecraft:iron_ingot" },
     "T": { "item": "mpn:titanium_ingot" },
-    "F": { "item": "minecraft:furnace" }
+    "W": { "item": "minecraft:bucket" },
+    "B": { "item": "mpn:basic_iron_shell" },
+    "F": { "item": "minecraft:furnace" },
+    "R": { "item": "minecraft:redstone" }
   },
   "result": {
     "item": "mpn:alloy_machine",

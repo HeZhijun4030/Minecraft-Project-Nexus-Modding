@@ -6,6 +6,7 @@ import com.cac.mpn.power.devices.ElectricFurnace;
 import com.cac.mpn.Block.BlockZincWire;
 import com.cac.mpn.Block.BlockElectricFurnace;
 import com.cac.mpn.Block.BlockCopperWire;
+import com.cac.mpn.Block.BlockBasicSolarGenerator;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -29,6 +30,7 @@ public class RegisterBlock {
     public static final Tin TIN = new Tin();
     public static final Aluminum ALUMINUM = new Aluminum();
     public static final BlockCopperWire BLOCK_COPPER_CABLE = new BlockCopperWire();
+    public static final BlockBasicSolarGenerator BASIC_SOLAR_GENERATOR = new BlockBasicSolarGenerator();
 
 
     @SubscribeEvent
@@ -47,6 +49,7 @@ public class RegisterBlock {
         registry.register(TIN);
         registry.register(ALUMINUM);
         registry.register(BLOCK_COPPER_CABLE);
+        registry.register(BASIC_SOLAR_GENERATOR);
 
     }
 }

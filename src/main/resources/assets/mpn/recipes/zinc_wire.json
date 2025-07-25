@@ -1,16 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ZZZ",
-    " H ",
-    "ZZZ"
+    "ZZS"
   ],
   "key": {
-    "Z": { "item": "mpn:zinc_plate" },
-    "H": { "item": "mpn:hydraulic_shears", "data": 32767 }
+    "Z": { "item": "mpn:zinc_ingot" },
+    "S": { "item": "mpn:hydraulic_shears", "data": 32767 }
   },
   "result": {
     "item": "mpn:zinc_wire",
-    "count": 8
+    "count": 4
   }
 } 

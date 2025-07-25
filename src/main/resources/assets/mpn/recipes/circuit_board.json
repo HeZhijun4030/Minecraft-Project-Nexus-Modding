@@ -1,14 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "RIR",
-    "IGI",
-    "RIR"
+    "ZCZ",
+    "BRB",
+    "ZCZ"
   ],
   "key": {
-    "R": { "item": "minecraft:redstone" },
-    "I": { "item": "minecraft:iron_ingot" },
-    "G": { "item": "minecraft:gold_ingot" }
+    "Z": { "item": "mpn:zinc_wire" },
+    "C": { "item": "mpn:copper_wire" },
+    "B": { "item": "mpn:basic_circuit_core" },
+    "R": { "item": "minecraft:redstone" }
   },
   "result": {
     "item": "mpn:circuit_board",

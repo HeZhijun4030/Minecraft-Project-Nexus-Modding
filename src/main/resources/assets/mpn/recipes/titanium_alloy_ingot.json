@@ -1,0 +1,13 @@
+{
+  "type": "mpn:alloy_furnace",
+  "ingredients": [
+    { "item": "mpn:zinc_wire" },
+    { "item": "mpn:copper_wire" },
+    { "item": "mpn:titanium_ingot", "count": 3 }
+  ],
+  "result": {
+    "item": "mpn:titanium_alloy_ingot",
+    "count": 1
+  },
+  "cookTime": 2000
+} 

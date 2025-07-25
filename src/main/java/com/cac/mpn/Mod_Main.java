@@ -49,6 +49,7 @@ public class Mod_Main implements IGuiHandler {
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AlloyMachineTileEntity.class, new ResourceLocation(MODID, "alloy_machine_tile"));
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ZincWire.class, new ResourceLocation(MODID, "zinc_wire_tile"));
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.CopperWire.class, new ResourceLocation(MODID, "copper_cable_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.BasicSolarGenerator.class, new ResourceLocation(MODID, "basic_solar_generator_tile"));
         // 注册矿石生成
         com.cac.mpn.Block.ModWorldGen.registerWorldGen();
         // 注册熔炼配方

@@ -34,3 +34,4 @@ item.data_ingot_shovel.name=Data Ingot Shovel
 item.data_ingot_hoe.name=Data Ingot Hoe
 item.data_ingot_bow.name=Data Ingot Bow
 item.data_ingot_arrow.name=Data Ingot Arrow
+basic_solar_generator.name=Basic Solar Generator
