@@ -1,18 +1,30 @@
 {
-  "forge_marker":1,
+  "forge_marker": 1,
   "defaults": {
-    "model": "minecraft:orientable" ,
+    "model": "cube",
     "textures": {
-      "top": "mpn:blocks/spectral_solar_top",
-      "front": "mpn:blocks/spectral_solar_nnn",
-      "side": "mpn:blocks/spectral_solar_nn"
+      "up": "mpn:blocks/spectral_solar_top",
+      "down": "mpn:blocks/spectral_solar_nnn",
+      "north": "mpn:blocks/spectral_solar_nnn",
+      "south": "mpn:blocks/spectral_solar_nnn",
+      "west": "mpn:blocks/spectral_solar_nnn",
+      "east": "mpn:blocks/spectral_solar_nnn"
     }
   },
   "variants": {
-    "facing=west": [{"y": 270}],
-    "facing=south": [{"y": 180}],
-    "facing=east": [{"y": 90}],
-    "facing=north": [{}],
-    "inventory": [{ "transform": "forge:default-block"}]
+    "facing": {
+      "north": [{}],
+      "east": [{"y": 90}],
+      "south": [{"y": 180}],
+      "west": [{"y": 270}],
+      "up": [{"x": 270}],
+      "down": [{"x": 90}]
+    },
+    "inventory": {
+      "model": "cube_all",
+      "textures": {
+        "all": "mpn:blocks/spectral_solar_top"
+      }
+    }
   }
 }

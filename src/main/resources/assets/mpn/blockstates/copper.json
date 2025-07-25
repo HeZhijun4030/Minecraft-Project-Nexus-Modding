@@ -2,10 +2,10 @@
   "forge_marker": 1,
   "defaults": {
     "model": "minecraft:cube_all" ,
-    "textures": { "all":  "mpn:blocks/titanium"}
+    "textures": { "all":  "mpn:blocks/copper"}
   },
   "variants": {
     "normal": [{}],
     "inventory": [{ "transform": "forge:default-block"}]
   }
-}
+} 

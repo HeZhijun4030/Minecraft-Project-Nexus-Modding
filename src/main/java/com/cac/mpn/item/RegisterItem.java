@@ -38,6 +38,7 @@ public class RegisterItem {
     public static final ItemBlock ITEM_ZINC = new ItemBlock(RegisterBlock.ZINC);
     public static final ItemBlock ITEM_ALLOY_MACHINE = new ItemBlock(RegisterBlock.ALLOY_MACHINE);
     public static final ItemBlock ITEM_COPPER_CABLE = new ItemBlock(RegisterBlock.BLOCK_COPPER_CABLE);
+    public static final ItemBlock ITEM_BASIC_SOLAR_GENERATOR = new ItemBlock(RegisterBlock.BASIC_SOLAR_GENERATOR);
     public static final CopperIngot COPPER_INGOT = new CopperIngot();
     public static final ZincIngot ZINC_INGOT = new ZincIngot();
     public static final DataKnife DATA_KNIFE = new DataKnife();
@@ -115,6 +116,7 @@ public class RegisterItem {
         registerItemBlock(registry, ITEM_ZINC);
         registerItemBlock(registry, ITEM_ALLOY_MACHINE);
         registerItemBlock(registry, ITEM_COPPER_CABLE);
+        registerItemBlock(registry, ITEM_BASIC_SOLAR_GENERATOR);
         registry.register(COPPER_WIRE);
         registry.register(COPPER_INGOT);
         registry.register(ZINC_INGOT);
@@ -222,6 +224,10 @@ public class RegisterItem {
         registerModel(ITEM_ALLOY_MACHINE);
         registerModel(TITANIUM_ALLOY_INGOT);
         registerModel(ITEM_COPPER_CABLE);
+        registerModel(ITEM_BASIC_SOLAR_GENERATOR);
+        registerModel(ITEM_COPPER);
+        registerModel(ITEM_ZINC);
+        registerModel(ITEM_TITANIUM);
     }
 
     @SideOnly(Side.CLIENT)
