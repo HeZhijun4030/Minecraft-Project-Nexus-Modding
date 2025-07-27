@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " w ",
+    "wtw",
+    " z "
+  ],
+  "key": {
+    "w": {
+      "item": "mpn:copper_wire"
+    },
+    "t": {
+      "item": "mpn:titanium_ingot"
+    },
+    "z": {
+      "item": "mpn:zinc_wire"
+    }
+  },
+  "result": {
+    "item": "mpn:titanium_alloy_ingot",
+    "count": 1
+  }
+} 

@@ -7,13 +7,14 @@
   ],
   "key": {
     "i": {
-      "item": "mpn:Data_ingot"
+      "item": "mpn:data_ingot"
     },
     "s": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "mpn:Data_knife"
+    "item": "mpn:data_knife",
+    "count": 1
   }
-}
+} 

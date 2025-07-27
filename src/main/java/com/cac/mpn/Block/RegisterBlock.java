@@ -7,6 +7,9 @@ import com.cac.mpn.Block.BlockZincWire;
 import com.cac.mpn.Block.BlockElectricFurnace;
 import com.cac.mpn.Block.BlockCopperWire;
 import com.cac.mpn.Block.BlockBasicSolarGenerator;
+import com.cac.mpn.Block.BlockWaterPump500ZF;
+import com.cac.mpn.Block.BlockWaterPipe;
+import com.cac.mpn.Block.TitaniumAlloyBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
@@ -31,6 +34,19 @@ public class RegisterBlock {
     public static final Aluminum ALUMINUM = new Aluminum();
     public static final BlockCopperWire BLOCK_COPPER_CABLE = new BlockCopperWire();
     public static final BlockBasicSolarGenerator BASIC_SOLAR_GENERATOR = new BlockBasicSolarGenerator();
+    public static final BlockWaterPump500ZF WATER_PUMP_500ZF = new BlockWaterPump500ZF();
+    public static final BlockWaterPipe WATER_PIPE = new BlockWaterPipe();
+    public static final TitaniumAlloyBlock TITANIUM_ALLOY_BLOCK = new TitaniumAlloyBlock();
+    
+    // 高级发电机
+    public static final BlockAdvancedGeneratorTier1 ADVANCED_GENERATOR_TIER1 = new BlockAdvancedGeneratorTier1();
+    public static final BlockAdvancedGeneratorTier2 ADVANCED_GENERATOR_TIER2 = new BlockAdvancedGeneratorTier2();
+    public static final BlockAdvancedGeneratorTier3 ADVANCED_GENERATOR_TIER3 = new BlockAdvancedGeneratorTier3();
+    public static final BlockAdvancedGeneratorTier4 ADVANCED_GENERATOR_TIER4 = new BlockAdvancedGeneratorTier4();
+    public static final BlockAdvancedGeneratorTier5 ADVANCED_GENERATOR_TIER5 = new BlockAdvancedGeneratorTier5();
+    public static final BlockAdvancedGeneratorTier6 ADVANCED_GENERATOR_TIER6 = new BlockAdvancedGeneratorTier6();
+    public static final BlockAdvancedGeneratorTier7 ADVANCED_GENERATOR_TIER7 = new BlockAdvancedGeneratorTier7();
+    public static final BlockAdvancedGeneratorTier8 ADVANCED_GENERATOR_TIER8 = new BlockAdvancedGeneratorTier8();
 
 
     @SubscribeEvent
@@ -50,6 +66,19 @@ public class RegisterBlock {
         registry.register(ALUMINUM);
         registry.register(BLOCK_COPPER_CABLE);
         registry.register(BASIC_SOLAR_GENERATOR);
+        event.getRegistry().register(WATER_PUMP_500ZF);
+        event.getRegistry().register(WATER_PIPE);
+        event.getRegistry().register(TITANIUM_ALLOY_BLOCK);
+        
+        // 注册高级发电机
+        event.getRegistry().register(ADVANCED_GENERATOR_TIER1);
+        event.getRegistry().register(ADVANCED_GENERATOR_TIER2);
+        event.getRegistry().register(ADVANCED_GENERATOR_TIER3);
+        event.getRegistry().register(ADVANCED_GENERATOR_TIER4);
+        event.getRegistry().register(ADVANCED_GENERATOR_TIER5);
+        event.getRegistry().register(ADVANCED_GENERATOR_TIER6);
+        event.getRegistry().register(ADVANCED_GENERATOR_TIER7);
+        event.getRegistry().register(ADVANCED_GENERATOR_TIER8);
 
     }
 }

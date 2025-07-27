@@ -10,6 +10,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import com.cac.mpn.item.RegisterItem;
+import com.cac.mpn.Block.RegisterBlock;
 
 public class AlloyMachineTileEntity extends SimplePowerTileEntity implements ISidedInventory {
     public static final int POWER_PER_SECOND = 250;
@@ -30,7 +31,7 @@ public class AlloyMachineTileEntity extends SimplePowerTileEntity implements ISi
         ItemStack battery = inventory.get(4);
         if (battery != null && battery.getItem() instanceof com.cac.mpn.item.ItemPrimaryBattery) {
             long batteryEnergy = com.cac.mpn.item.ItemPrimaryBattery.getEnergy(battery);
-            long need = Math.min(POWER_PER_TICK * 2, getCapacity() - getStoredPower());
+            long need = Math.min(POWER_PER_TICK * 2, getCapacity() - getStoredPower()); // 一次最多拉2tick能量
             if (batteryEnergy > 0 && need > 0) {
                 long transfer = Math.min(need, batteryEnergy);
                 setStoredPower(getStoredPower() + transfer);
@@ -41,15 +42,35 @@ public class AlloyMachineTileEntity extends SimplePowerTileEntity implements ISi
                 markDirty();
             }
         }
+        
         boolean canWork = canWork();
         boolean dirty = false;
-        if (canWork && getStoredPower() >= POWER_PER_TICK) {
-            setStoredPower(getStoredPower() - POWER_PER_TICK);
-            workTime++;
-            if (workTime >= WORK_TIME) {
-                doWork();
-                workTime = 0;
-                dirty = true;
+        if (canWork) {
+            // 持续消耗电力
+            if (isDataIngotRecipe()) {
+                // 数据锭配方：每秒消耗11,000K ZF
+                long powerPerTick = 11000000 / 20; // 11,000K ZF / 20 ticks = 550K RF/tick
+                if (getStoredPower() >= powerPerTick) {
+                    setStoredPower(getStoredPower() - powerPerTick);
+                    workTime++;
+                    if (workTime >= WORK_TIME) {
+                        doWork();
+                        workTime = 0;
+                        dirty = true;
+                    }
+                }
+            } else if (isTitaniumAlloyRecipe()) {
+                // 钛合金锭配方：每秒消耗20K ZF
+                long powerPerTick = 20000 / 20; // 20K ZF / 20 ticks = 1K RF/tick
+                if (getStoredPower() >= powerPerTick) {
+                    setStoredPower(getStoredPower() - powerPerTick);
+                    workTime++;
+                    if (workTime >= WORK_TIME) {
+                        doWork();
+                        workTime = 0;
+                        dirty = true;
+                    }
+                }
             }
         } else {
             workTime = 0;
@@ -57,12 +78,80 @@ public class AlloyMachineTileEntity extends SimplePowerTileEntity implements ISi
         if (dirty) markDirty();
     }
 
+    private boolean isDataIngotRecipe() {
+        ItemStack slot0 = inventory.get(0);
+        ItemStack slot1 = inventory.get(1);
+        ItemStack slot2 = inventory.get(2);
+        ItemStack output = inventory.get(3);
+        
+        boolean hasMaterials = !slot0.isEmpty() && slot0.getItem() == net.minecraft.init.Items.DIAMOND &&
+                             !slot1.isEmpty() && slot1.getItem() == net.minecraft.init.Items.EMERALD &&
+                             !slot2.isEmpty() && slot2.getItem() == net.minecraft.item.Item.getItemFromBlock(RegisterBlock.TITANIUM_ALLOY_BLOCK);
+        
+        boolean canOutput = output.isEmpty() || (output.getItem() == RegisterItem.DATA_INGOT && output.getCount() < output.getMaxStackSize());
+        
+        return hasMaterials && canOutput;
+    }
+
+    private boolean isTitaniumAlloyRecipe() {
+        ItemStack slot0 = inventory.get(0);
+        ItemStack slot1 = inventory.get(1);
+        ItemStack slot2 = inventory.get(2);
+        ItemStack output = inventory.get(3);
+        
+        boolean hasMaterials = !slot0.isEmpty() && slot0.getItem() == RegisterItem.COPPER_WIRE &&
+                             !slot1.isEmpty() && slot1.getItem() == RegisterItem.ZINC_WIRE &&
+                             !slot2.isEmpty() && slot2.getItem() == RegisterItem.TITANIUM_INGOT && slot2.getCount() >= 3;
+        
+        boolean canOutput = output.isEmpty() || (output.getItem() == RegisterItem.TITANIUM_ALLOY_INGOT && output.getCount() < output.getMaxStackSize());
+        
+        return hasMaterials && canOutput;
+    }
+
     private boolean canWork() {
-        return false; // 屏蔽合金机配方逻辑
+        return isDataIngotRecipe() || isTitaniumAlloyRecipe();
     }
 
     private void doWork() {
-        // 屏蔽合金机产出逻辑
+        ItemStack slot0 = inventory.get(0);
+        ItemStack slot1 = inventory.get(1);
+        ItemStack slot2 = inventory.get(2);
+        ItemStack output = inventory.get(3);
+        
+        // 检查数据锭配方
+        if (!slot0.isEmpty() && slot0.getItem() == net.minecraft.init.Items.DIAMOND &&
+            !slot1.isEmpty() && slot1.getItem() == net.minecraft.init.Items.EMERALD &&
+            !slot2.isEmpty() && slot2.getItem() == net.minecraft.item.Item.getItemFromBlock(RegisterBlock.TITANIUM_ALLOY_BLOCK)) {
+            
+            // 消耗输入材料
+            inventory.get(0).shrink(1); // 钻石
+            inventory.get(1).shrink(1); // 绿宝石
+            inventory.get(2).shrink(1); // 钛合金块
+            
+            // 产出数据锭
+            if (output.isEmpty()) {
+                inventory.set(3, new ItemStack(RegisterItem.DATA_INGOT));
+            } else {
+                output.grow(1);
+            }
+        }
+        // 检查钛合金锭配方
+        else if (!slot0.isEmpty() && slot0.getItem() == RegisterItem.COPPER_WIRE &&
+                 !slot1.isEmpty() && slot1.getItem() == RegisterItem.ZINC_WIRE &&
+                 !slot2.isEmpty() && slot2.getItem() == RegisterItem.TITANIUM_INGOT && slot2.getCount() >= 3) {
+            
+            // 消耗输入材料
+            inventory.get(0).shrink(1); // 铜线
+            inventory.get(1).shrink(1); // 锌线
+            inventory.get(2).shrink(3); // 3个钛锭
+            
+            // 产出钛合金锭
+            if (output.isEmpty()) {
+                inventory.set(3, new ItemStack(RegisterItem.TITANIUM_ALLOY_INGOT));
+            } else {
+                output.grow(1);
+            }
+        }
     }
 
     @Override

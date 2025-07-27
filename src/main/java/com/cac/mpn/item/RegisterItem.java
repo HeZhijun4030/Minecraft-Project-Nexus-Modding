@@ -2,10 +2,6 @@ package com.cac.mpn.item;
 
 import com.cac.mpn.Block.RegisterBlock;
 import com.cac.mpn.item.Item_Swords.*;
-import com.cac.mpn.Block.BlockZincWire;
-import com.cac.mpn.Block.BlockElectricFurnace;
-import com.cac.mpn.item.CopperIngot;
-import com.cac.mpn.item.ZincIngot;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -25,8 +21,9 @@ import java.util.Objects;
 
 @Mod.EventBusSubscriber
 public class RegisterItem {
-    public static final Item.ToolMaterial DATA_KNIFE_MATERIAL = EnumHelper.addToolMaterial("DATA", 1, 2048, 1.0F, 45.0F, 10);
-    public static final Item.ToolMaterial TITANIUM_SWORD_MATERIAL = EnumHelper.addToolMaterial("TITANIUM", 1, 1024, 1.6F, 12.0F, 10);
+    public static final Item.ToolMaterial DATA_TOOL_MATERIAL = EnumHelper.addToolMaterial("DATA_TOOL", 4, 4096, 1.0F, 15.0F, 15);
+    public static final Item.ToolMaterial DATA_KNIFE_MATERIAL = EnumHelper.addToolMaterial("DATA", 1, 2048, 1.0F, 80.0F, 10);
+    public static final Item.ToolMaterial TITANIUM_SWORD_MATERIAL = EnumHelper.addToolMaterial("TITANIUM", 1, 1024, 1.6F, 15.0F, 10);
     public static final ItemBlock ITEM_SPECTRAL_SOLAR = new ItemBlock(RegisterBlock.SPECTRAL_SOLAR);
     public static final ItemBlock ITEM_TITANIUM = new ItemBlock(RegisterBlock.TITANIUM);
     public static final ItemBlock ITEM_ELECTRONIC_SOLAR = new ItemBlock(RegisterBlock.ELECTRONIC_SOLAR);
@@ -36,15 +33,32 @@ public class RegisterItem {
     public static final ItemBlock ITEM_ELECTRIC_FURNACE = new ItemBlock(RegisterBlock.BLOCK_ELECTRIC_FURNACE);
     public static final ItemBlock ITEM_COPPER = new ItemBlock(RegisterBlock.COPPER);
     public static final ItemBlock ITEM_ZINC = new ItemBlock(RegisterBlock.ZINC);
+    public static final ItemBlock ITEM_ALUMINUM = new ItemBlock(RegisterBlock.ALUMINUM);
+    public static final ItemBlock ITEM_TIN = new ItemBlock(RegisterBlock.TIN);
     public static final ItemBlock ITEM_ALLOY_MACHINE = new ItemBlock(RegisterBlock.ALLOY_MACHINE);
     public static final ItemBlock ITEM_COPPER_CABLE = new ItemBlock(RegisterBlock.BLOCK_COPPER_CABLE);
     public static final ItemBlock ITEM_BASIC_SOLAR_GENERATOR = new ItemBlock(RegisterBlock.BASIC_SOLAR_GENERATOR);
+    public static final ItemBlock ITEM_WATER_PUMP_500ZF = new ItemBlock(RegisterBlock.WATER_PUMP_500ZF);
+    public static final ItemBlock ITEM_WATER_PIPE = new ItemBlock(RegisterBlock.WATER_PIPE);
+    public static final ItemBlock ITEM_TITANIUM_ALLOY_BLOCK = new ItemBlock(RegisterBlock.TITANIUM_ALLOY_BLOCK);
+    
+    // 高级发电机ItemBlock
+    public static final ItemBlock ITEM_ADVANCED_GENERATOR_TIER1 = new ItemBlock(RegisterBlock.ADVANCED_GENERATOR_TIER1);
+    public static final ItemBlock ITEM_ADVANCED_GENERATOR_TIER2 = new ItemBlock(RegisterBlock.ADVANCED_GENERATOR_TIER2);
+    public static final ItemBlock ITEM_ADVANCED_GENERATOR_TIER3 = new ItemBlock(RegisterBlock.ADVANCED_GENERATOR_TIER3);
+    public static final ItemBlock ITEM_ADVANCED_GENERATOR_TIER4 = new ItemBlock(RegisterBlock.ADVANCED_GENERATOR_TIER4);
+    public static final ItemBlock ITEM_ADVANCED_GENERATOR_TIER5 = new ItemBlock(RegisterBlock.ADVANCED_GENERATOR_TIER5);
+    public static final ItemBlock ITEM_ADVANCED_GENERATOR_TIER6 = new ItemBlock(RegisterBlock.ADVANCED_GENERATOR_TIER6);
+    public static final ItemBlock ITEM_ADVANCED_GENERATOR_TIER7 = new ItemBlock(RegisterBlock.ADVANCED_GENERATOR_TIER7);
+    public static final ItemBlock ITEM_ADVANCED_GENERATOR_TIER8 = new ItemBlock(RegisterBlock.ADVANCED_GENERATOR_TIER8);
     public static final CopperIngot COPPER_INGOT = new CopperIngot();
     public static final ZincIngot ZINC_INGOT = new ZincIngot();
-    public static final DataKnife DATA_KNIFE = new DataKnife();
+    public static final AluminumIngot ALUMINUM_INGOT = new AluminumIngot();
+    public static final TinIngot TIN_INGOT = new TinIngot();
     public static final Titanium_sword TITANIUM_SWORD = new Titanium_sword();
     public static final Titanium_ingot TITANIUM_INGOT = new Titanium_ingot();
     public static final Data_ingot DATA_INGOT = new Data_ingot();
+    public static final DataKnife DATA_KNIFE = new DataKnife();
     public static final ZincPlate ZINC_PLATE = new ZincPlate();
     public static final AluminumPlate ALUMINUM_PLATE = new AluminumPlate();
     public static final CopperPlate COPPER_PLATE = new CopperPlate();
@@ -55,6 +69,7 @@ public class RegisterItem {
     public static final BasicCircuitCore BASIC_CIRCUIT_CORE = new BasicCircuitCore();
     public static final CopperWire COPPER_WIRE = new CopperWire();
     public static final TinWire TIN_WIRE = new TinWire();
+    public static final ZincWire ZINC_WIRE = new ZincWire();
     public static final BasicIronShell BASIC_IRON_SHELL = new BasicIronShell();
     public static final TitaniumAlloyIngot TITANIUM_ALLOY_INGOT = new TitaniumAlloyIngot();
 
@@ -101,10 +116,8 @@ public class RegisterItem {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         IForgeRegistry<Item> registry = event.getRegistry();
-        registry.register(DATA_KNIFE);
-        registry.register(TITANIUM_SWORD);
-        registry.register(TITANIUM_INGOT);
-        registry.register(DATA_INGOT);
+        
+        // 注册方块物品
         registerItemBlock(registry, ITEM_SPECTRAL_SOLAR);
         registerItemBlock(registry, ITEM_TITANIUM);
         registerItemBlock(registry, ITEM_ELECTRONIC_SOLAR);
@@ -114,12 +127,34 @@ public class RegisterItem {
         registerItemBlock(registry, ITEM_ELECTRIC_FURNACE);
         registerItemBlock(registry, ITEM_COPPER);
         registerItemBlock(registry, ITEM_ZINC);
+        registerItemBlock(registry, ITEM_ALUMINUM);
+        registerItemBlock(registry, ITEM_TIN);
         registerItemBlock(registry, ITEM_ALLOY_MACHINE);
         registerItemBlock(registry, ITEM_COPPER_CABLE);
         registerItemBlock(registry, ITEM_BASIC_SOLAR_GENERATOR);
+        registerItemBlock(registry, ITEM_WATER_PUMP_500ZF);
+        registerItemBlock(registry, ITEM_WATER_PIPE);
+        registerItemBlock(registry, ITEM_TITANIUM_ALLOY_BLOCK);
+        registerItemBlock(registry, ITEM_ADVANCED_GENERATOR_TIER1);
+        registerItemBlock(registry, ITEM_ADVANCED_GENERATOR_TIER2);
+        registerItemBlock(registry, ITEM_ADVANCED_GENERATOR_TIER3);
+        registerItemBlock(registry, ITEM_ADVANCED_GENERATOR_TIER4);
+        registerItemBlock(registry, ITEM_ADVANCED_GENERATOR_TIER5);
+        registerItemBlock(registry, ITEM_ADVANCED_GENERATOR_TIER6);
+        registerItemBlock(registry, ITEM_ADVANCED_GENERATOR_TIER7);
+        registerItemBlock(registry, ITEM_ADVANCED_GENERATOR_TIER8);
+        
+        // 注册物品
         registry.register(COPPER_WIRE);
         registry.register(COPPER_INGOT);
         registry.register(ZINC_INGOT);
+        registry.register(ALUMINUM_INGOT);
+        registry.register(TIN_INGOT);
+        registry.register(ZINC_WIRE);
+        registry.register(DATA_KNIFE);
+        registry.register(TITANIUM_SWORD);
+        registry.register(TITANIUM_INGOT);
+        registry.register(DATA_INGOT);
         registry.register(ZINC_PLATE);
         registry.register(ALUMINUM_PLATE);
         registry.register(COPPER_PLATE);
@@ -131,62 +166,77 @@ public class RegisterItem {
         registry.register(TIN_WIRE);
         registry.register(BASIC_IRON_SHELL);
         registry.register(TITANIUM_ALLOY_INGOT);
-        // 盔甲实例化
-        TITANIUM_HELMET = new com.cac.mpn.item.Armor.TitaniumArmor.Helmet();
-        TITANIUM_CHESTPLATE = new com.cac.mpn.item.Armor.TitaniumArmor.Chestplate();
-        TITANIUM_LEGGINGS = new com.cac.mpn.item.Armor.TitaniumArmor.Leggings();
-        TITANIUM_BOOTS = new com.cac.mpn.item.Armor.TitaniumArmor.Boots();
-        TITANIUM_ALLOY_HELMET = new com.cac.mpn.item.Armor.TitaniumAlloyArmor.Helmet();
-        TITANIUM_ALLOY_CHESTPLATE = new com.cac.mpn.item.Armor.TitaniumAlloyArmor.Chestplate();
-        TITANIUM_ALLOY_LEGGINGS = new com.cac.mpn.item.Armor.TitaniumAlloyArmor.Leggings();
-        TITANIUM_ALLOY_BOOTS = new com.cac.mpn.item.Armor.TitaniumAlloyArmor.Boots();
-        DATA_INGOT_HELMET = new com.cac.mpn.item.Armor.DataIngotArmor.Helmet();
-        DATA_INGOT_CHESTPLATE = new com.cac.mpn.item.Armor.DataIngotArmor.Chestplate();
-        DATA_INGOT_LEGGINGS = new com.cac.mpn.item.Armor.DataIngotArmor.Leggings();
-        DATA_INGOT_BOOTS = new com.cac.mpn.item.Armor.DataIngotArmor.Boots();
-        // 工具实例化
-        TITANIUM_PICKAXE = new com.cac.mpn.item.Item_Tools.TitaniumPickaxe();
-        TITANIUM_AXE = new com.cac.mpn.item.Item_Tools.TitaniumAxe();
-        TITANIUM_SHOVEL = new com.cac.mpn.item.Item_Tools.TitaniumShovel();
-        TITANIUM_HOE = new com.cac.mpn.item.Item_Tools.TitaniumHoe();
-        TITANIUM_ALLOY_PICKAXE = new com.cac.mpn.item.Item_Tools.TitaniumAlloyPickaxe();
-        TITANIUM_ALLOY_AXE = new com.cac.mpn.item.Item_Tools.TitaniumAlloyAxe();
-        TITANIUM_ALLOY_SHOVEL = new com.cac.mpn.item.Item_Tools.TitaniumAlloyShovel();
-        TITANIUM_ALLOY_HOE = new com.cac.mpn.item.Item_Tools.TitaniumAlloyHoe();
+        
+        // 注册数据锭工具和武器
         DATA_INGOT_PICKAXE = new com.cac.mpn.item.Item_Tools.DataIngotPickaxe();
         DATA_INGOT_AXE = new com.cac.mpn.item.Item_Tools.DataIngotAxe();
         DATA_INGOT_SHOVEL = new com.cac.mpn.item.Item_Tools.DataIngotShovel();
         DATA_INGOT_HOE = new com.cac.mpn.item.Item_Tools.DataIngotHoe();
-        // 数据锭弓箭实例化
-        DATA_INGOT_BOW = new com.cac.mpn.item.Item_Bow.DataIngotBow();
-        DATA_INGOT_ARROW = new com.cac.mpn.item.Item_Bow.DataIngotArrow();
-        // 注册盔甲
-        registry.register(TITANIUM_HELMET);
-        registry.register(TITANIUM_CHESTPLATE);
-        registry.register(TITANIUM_LEGGINGS);
-        registry.register(TITANIUM_BOOTS);
-        registry.register(TITANIUM_ALLOY_HELMET);
-        registry.register(TITANIUM_ALLOY_CHESTPLATE);
-        registry.register(TITANIUM_ALLOY_LEGGINGS);
-        registry.register(TITANIUM_ALLOY_BOOTS);
-        registry.register(DATA_INGOT_HELMET);
-        registry.register(DATA_INGOT_CHESTPLATE);
-        registry.register(DATA_INGOT_LEGGINGS);
-        registry.register(DATA_INGOT_BOOTS);
-        // 注册工具
-        registry.register(TITANIUM_PICKAXE);
-        registry.register(TITANIUM_AXE);
-        registry.register(TITANIUM_SHOVEL);
-        registry.register(TITANIUM_HOE);
-        registry.register(TITANIUM_ALLOY_PICKAXE);
-        registry.register(TITANIUM_ALLOY_AXE);
-        registry.register(TITANIUM_ALLOY_SHOVEL);
-        registry.register(TITANIUM_ALLOY_HOE);
+        
         registry.register(DATA_INGOT_PICKAXE);
         registry.register(DATA_INGOT_AXE);
         registry.register(DATA_INGOT_SHOVEL);
         registry.register(DATA_INGOT_HOE);
+        
+        // 注册数据锭护具
+        DATA_INGOT_HELMET = new com.cac.mpn.item.Armor.DataIngotArmor(net.minecraft.inventory.EntityEquipmentSlot.HEAD);
+        DATA_INGOT_CHESTPLATE = new com.cac.mpn.item.Armor.DataIngotArmor(net.minecraft.inventory.EntityEquipmentSlot.CHEST);
+        DATA_INGOT_LEGGINGS = new com.cac.mpn.item.Armor.DataIngotArmor(net.minecraft.inventory.EntityEquipmentSlot.LEGS);
+        DATA_INGOT_BOOTS = new com.cac.mpn.item.Armor.DataIngotArmor(net.minecraft.inventory.EntityEquipmentSlot.FEET);
+        
+        registry.register(DATA_INGOT_HELMET);
+        registry.register(DATA_INGOT_CHESTPLATE);
+        registry.register(DATA_INGOT_LEGGINGS);
+        registry.register(DATA_INGOT_BOOTS);
+        
+        // 注册钛合金工具
+        TITANIUM_PICKAXE = new com.cac.mpn.item.Item_Tools.TitaniumPickaxe();
+        TITANIUM_AXE = new com.cac.mpn.item.Item_Tools.TitaniumAxe();
+        TITANIUM_SHOVEL = new com.cac.mpn.item.Item_Tools.TitaniumShovel();
+        TITANIUM_HOE = new com.cac.mpn.item.Item_Tools.TitaniumHoe();
+        
+        registry.register(TITANIUM_PICKAXE);
+        registry.register(TITANIUM_AXE);
+        registry.register(TITANIUM_SHOVEL);
+        registry.register(TITANIUM_HOE);
+        
+        // 注册钛合金护具
+        TITANIUM_HELMET = new com.cac.mpn.item.Armor.TitaniumArmor(net.minecraft.inventory.EntityEquipmentSlot.HEAD);
+        TITANIUM_CHESTPLATE = new com.cac.mpn.item.Armor.TitaniumArmor(net.minecraft.inventory.EntityEquipmentSlot.CHEST);
+        TITANIUM_LEGGINGS = new com.cac.mpn.item.Armor.TitaniumArmor(net.minecraft.inventory.EntityEquipmentSlot.LEGS);
+        TITANIUM_BOOTS = new com.cac.mpn.item.Armor.TitaniumArmor(net.minecraft.inventory.EntityEquipmentSlot.FEET);
+        
+        registry.register(TITANIUM_HELMET);
+        registry.register(TITANIUM_CHESTPLATE);
+        registry.register(TITANIUM_LEGGINGS);
+        registry.register(TITANIUM_BOOTS);
+        
+        // 注册钛合金工具
+        TITANIUM_ALLOY_PICKAXE = new com.cac.mpn.item.Item_Tools.TitaniumAlloyPickaxe();
+        TITANIUM_ALLOY_AXE = new com.cac.mpn.item.Item_Tools.TitaniumAlloyAxe();
+        TITANIUM_ALLOY_SHOVEL = new com.cac.mpn.item.Item_Tools.TitaniumAlloyShovel();
+        TITANIUM_ALLOY_HOE = new com.cac.mpn.item.Item_Tools.TitaniumAlloyHoe();
+        
+        registry.register(TITANIUM_ALLOY_PICKAXE);
+        registry.register(TITANIUM_ALLOY_AXE);
+        registry.register(TITANIUM_ALLOY_SHOVEL);
+        registry.register(TITANIUM_ALLOY_HOE);
+        
+        // 注册钛合金护具
+        TITANIUM_ALLOY_HELMET = new com.cac.mpn.item.Armor.TitaniumAlloyArmor(net.minecraft.inventory.EntityEquipmentSlot.HEAD);
+        TITANIUM_ALLOY_CHESTPLATE = new com.cac.mpn.item.Armor.TitaniumAlloyArmor(net.minecraft.inventory.EntityEquipmentSlot.CHEST);
+        TITANIUM_ALLOY_LEGGINGS = new com.cac.mpn.item.Armor.TitaniumAlloyArmor(net.minecraft.inventory.EntityEquipmentSlot.LEGS);
+        TITANIUM_ALLOY_BOOTS = new com.cac.mpn.item.Armor.TitaniumAlloyArmor(net.minecraft.inventory.EntityEquipmentSlot.FEET);
+        
+        registry.register(TITANIUM_ALLOY_HELMET);
+        registry.register(TITANIUM_ALLOY_CHESTPLATE);
+        registry.register(TITANIUM_ALLOY_LEGGINGS);
+        registry.register(TITANIUM_ALLOY_BOOTS);
+        
         // 注册数据锭弓箭
+        DATA_INGOT_BOW = new com.cac.mpn.item.Item_Bow.DataIngotBow();
+        DATA_INGOT_ARROW = new com.cac.mpn.item.Item_Bow.DataIngotArrow();
+        
         registry.register(DATA_INGOT_BOW);
         registry.register(DATA_INGOT_ARROW);
     }

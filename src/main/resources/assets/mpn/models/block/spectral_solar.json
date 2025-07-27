@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "top": "mpn:blocks/spectral_solar_top",
-    "front": "mpn:blocks/spectral_solar_nnn",
-    "side": "mpn:blocks/spectral_solar_nn"
-  }
-} 

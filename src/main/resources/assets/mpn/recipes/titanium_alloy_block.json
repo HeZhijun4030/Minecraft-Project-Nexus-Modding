@@ -2,14 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "iii",
-    "i i"
+    "iii",
+    "iii"
   ],
   "key": {
     "i": {
-      "item": "mpn:data_ingot"
+      "item": "mpn:titanium_alloy_ingot"
     }
   },
   "result": {
-    "item": "mpn:data_ingot_helmet"
+    "item": "mpn:titanium_alloy_block"
   }
 } 

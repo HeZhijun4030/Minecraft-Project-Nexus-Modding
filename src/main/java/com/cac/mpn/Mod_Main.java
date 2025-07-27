@@ -50,6 +50,18 @@ public class Mod_Main implements IGuiHandler {
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.ZincWire.class, new ResourceLocation(MODID, "zinc_wire_tile"));
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.CopperWire.class, new ResourceLocation(MODID, "copper_cable_tile"));
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.BasicSolarGenerator.class, new ResourceLocation(MODID, "basic_solar_generator_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.TileEntityWaterPump500ZF.class, new ResourceLocation(MODID, "water_pump_500zf_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.TileEntityWaterPipe.class, new ResourceLocation(MODID, "water_pipe_tile"));
+        
+        // 注册高级发电机TileEntity
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AdvancedGeneratorTier1.class, new ResourceLocation(MODID, "advanced_generator_tier1_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AdvancedGeneratorTier2.class, new ResourceLocation(MODID, "advanced_generator_tier2_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AdvancedGeneratorTier3.class, new ResourceLocation(MODID, "advanced_generator_tier3_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AdvancedGeneratorTier4.class, new ResourceLocation(MODID, "advanced_generator_tier4_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AdvancedGeneratorTier5.class, new ResourceLocation(MODID, "advanced_generator_tier5_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AdvancedGeneratorTier6.class, new ResourceLocation(MODID, "advanced_generator_tier6_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AdvancedGeneratorTier7.class, new ResourceLocation(MODID, "advanced_generator_tier7_tile"));
+        GameRegistry.registerTileEntity(com.cac.mpn.power.devices.AdvancedGeneratorTier8.class, new ResourceLocation(MODID, "advanced_generator_tier8_tile"));
         // 注册矿石生成
         com.cac.mpn.Block.ModWorldGen.registerWorldGen();
         // 注册熔炼配方

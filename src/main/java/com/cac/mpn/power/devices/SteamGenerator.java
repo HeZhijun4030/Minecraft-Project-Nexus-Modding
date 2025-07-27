@@ -2,9 +2,11 @@ package com.cac.mpn.power.devices;
 
 import com.cac.mpn.power.core.IPowerDevice;
 import com.cac.mpn.power.core.SimplePowerTileEntity;
+import com.cac.mpn.power.core.IWaterHandler;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -85,6 +87,49 @@ public class SteamGenerator extends SimplePowerTileEntity implements ISidedInven
                 world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
             }
         }
+    }
+
+    /**
+     * 从相邻的IWaterHandler拉取水（如管道）
+     */
+    private void tryPullWaterFromAdjacent() {
+        for (EnumFacing facing : EnumFacing.values()) {
+            TileEntity te = world.getTileEntity(pos.offset(facing));
+            if (te instanceof IWaterHandler) {
+                IWaterHandler handler = (IWaterHandler) te;
+                int needed = this.getWaterCapacity() - this.getWaterAmount();
+                if (needed > 0) {
+                    int pulled = handler.drainWater(Math.min(needed, 10000)); // 每次最多拉10L=10000mL
+                    if (pulled > 0) {
+                        this.fillWater(pulled);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 获取当前水量（毫升）
+     */
+    public int getWaterAmount() {
+        return waterTank.getFluidAmount();
+    }
+
+    /**
+     * 获取最大水量（毫升）
+     */
+    public int getWaterCapacity() {
+        return WATER_CAPACITY;
+    }
+
+    /**
+     * 向水箱注入水（毫升），返回实际注入量
+     */
+    public int fillWater(int amount) {
+        if (amount <= 0) return 0;
+        int filled = waterTank.fill(new net.minecraftforge.fluids.FluidStack(net.minecraftforge.fluids.FluidRegistry.WATER, amount), true);
+        return filled;
     }
 
     @Override

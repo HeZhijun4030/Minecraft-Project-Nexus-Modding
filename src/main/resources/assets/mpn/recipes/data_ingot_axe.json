@@ -1,13 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XX ",
-    "X# ",
-    " # "
+    "ii ",
+    "is ",
+    " s "
   ],
   "key": {
-    "X": { "item": "mpn:data_ingot" },
-    "#": { "item": "minecraft:stick" }
+    "i": {
+      "item": "mpn:data_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
   },
-  "result": { "item": "mpn:data_ingot_axe" }
+  "result": {
+    "item": "mpn:data_ingot_axe"
+  }
 } 
