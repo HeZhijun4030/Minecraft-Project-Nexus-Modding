@@ -2,7 +2,14 @@ buildscript {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-        maven { url = "https://crystal.app.lss233.com/repositories/forgedev" }
+        maven {
+            name = "gradle-plugin-portal"
+            url = "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            name = "forge-official"
+            url = "https://maven.minecraftforge.net"
+        }
         mavenCentral()
     }
     dependencies {

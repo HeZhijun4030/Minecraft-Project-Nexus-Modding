@@ -1,15 +1,8 @@
 package com.cac.mpn;
 
 import com.cac.mpn.power.SimplePowerRegistry;
-import com.cac.mpn.power.devices.ContainerSteamGenerator;
-import com.cac.mpn.power.devices.GuiSteamGenerator;
-import com.cac.mpn.power.devices.SteamGenerator;
 import com.cac.mpn.crafting.FurnaceRecipeRegistryHandler;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -17,7 +10,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
-import net.minecraftforge.fml.common.network.IGuiHandler;
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.util.ResourceLocation;
@@ -26,13 +18,18 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.text.TextComponentString;
 
-@Mod(modid = Mod_Main.MODID, name = Mod_Main.NAME, version = Mod_Main.VERSION)
-public class Mod_Main implements IGuiHandler {
+@Mod(
+    modid = Mod_Main.MODID,
+    name = Mod_Main.NAME, 
+    version = Mod_Main.VERSION,
+    acceptedMinecraftVersions = "[1.12,1.13)"
+)
+public class Mod_Main {
     public static final String MODID = "mpn";
     public static final String NAME = "Minecraft Project Nexus";
     public static final String VERSION = "Test-0.1";
 
-    @Mod.Instance(MODID)
+    @Mod.Instance(Mod_Main.MODID)
     public static Mod_Main instance;
 
     private static Logger logger;
@@ -41,7 +38,6 @@ public class Mod_Main implements IGuiHandler {
     public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
         SimplePowerRegistry.initialize();
-        net.minecraftforge.fml.common.network.NetworkRegistry.INSTANCE.registerGuiHandler(this, this);
         logger.info("Power system initialized");
         // 注册TileEntity，防止崩溃
         GameRegistry.registerTileEntity(com.cac.mpn.power.devices.SteamGenerator.class, new ResourceLocation(MODID, "steam_generator_tile"));
@@ -97,34 +93,6 @@ public class Mod_Main implements IGuiHandler {
         return logger;
     }
 
-    @Override
-    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        net.minecraft.tileentity.TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-        if (te instanceof com.cac.mpn.power.devices.SteamGenerator) {
-            return new com.cac.mpn.power.devices.ContainerSteamGenerator(player.inventory, (com.cac.mpn.power.devices.SteamGenerator) te);
-        }
-        if (te instanceof com.cac.mpn.power.devices.ElectricFurnace) {
-            return new com.cac.mpn.power.devices.ContainerElectricFurnace(player.inventory, (com.cac.mpn.power.devices.ElectricFurnace) te);
-        }
-        if (te instanceof com.cac.mpn.power.devices.AlloyMachineTileEntity) {
-            return new com.cac.mpn.power.devices.ContainerAlloyMachine(player.inventory, (com.cac.mpn.power.devices.AlloyMachineTileEntity) te);
-        }
-        return null;
-    }
-    @Override
-    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        net.minecraft.tileentity.TileEntity te = world.getTileEntity(new net.minecraft.util.math.BlockPos(x, y, z));
-        if (te instanceof com.cac.mpn.power.devices.SteamGenerator) {
-            return new com.cac.mpn.power.devices.GuiSteamGenerator(player.inventory, (com.cac.mpn.power.devices.SteamGenerator) te);
-        }
-        if (te instanceof com.cac.mpn.power.devices.ElectricFurnace) {
-            return new com.cac.mpn.power.devices.GuiElectricFurnace(player.inventory, (com.cac.mpn.power.devices.ElectricFurnace) te);
-        }
-        if (te instanceof com.cac.mpn.power.devices.AlloyMachineTileEntity) {
-            return new com.cac.mpn.power.devices.GuiAlloyMachine(player.inventory, (com.cac.mpn.power.devices.AlloyMachineTileEntity) te);
-        }
-        return null;
-    }
 
 
     @EventHandler
