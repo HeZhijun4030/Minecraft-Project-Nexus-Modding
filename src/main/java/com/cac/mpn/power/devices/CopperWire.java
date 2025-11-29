@@ -4,8 +4,8 @@ import com.cac.mpn.power.core.IPowerDevice;
 import com.cac.mpn.power.core.SimplePowerTileEntity;
 
 public class CopperWire extends SimplePowerTileEntity {
-    public static final int CAPACITY = 1500;
-    public static final int TRANSFER_PER_TICK = 75; // 1500RF/s
+    public static final long CAPACITY = 1500L;
+    public static final long TRANSFER_PER_TICK = 75L; // 1500RF/s
 
     public CopperWire() {
         super(CAPACITY, IPowerDevice.DeviceType.TRANSMITTER);

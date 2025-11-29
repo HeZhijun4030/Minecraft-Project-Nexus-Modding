@@ -4,9 +4,9 @@ import com.cac.mpn.power.core.IPowerDevice;
 import com.cac.mpn.power.core.SimplePowerTileEntity;
 
 public class AdvancedGeneratorTier1 extends SimplePowerTileEntity {
-    public static final int POWER_PER_SECOND = 100;
-    public static final int POWER_PER_TICK = POWER_PER_SECOND / 20;
-    public static final int POWER_CAPACITY = 10000;
+    public static final long POWER_PER_SECOND = 100L;
+    public static final long POWER_PER_TICK = POWER_PER_SECOND / 20L;
+    public static final long POWER_CAPACITY = 10000L;
 
     public AdvancedGeneratorTier1() {
         super(POWER_CAPACITY, IPowerDevice.DeviceType.GENERATOR);

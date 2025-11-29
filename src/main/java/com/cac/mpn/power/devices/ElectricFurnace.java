@@ -12,9 +12,9 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 
 public class ElectricFurnace extends SimplePowerTileEntity implements ISidedInventory {
-    public static final int POWER_PER_SECOND = 100;
-    public static final int POWER_PER_TICK = POWER_PER_SECOND / 20;
-    public static final int POWER_CAPACITY = 10000;
+    public static final long POWER_PER_SECOND = 100L;
+    public static final long POWER_PER_TICK = POWER_PER_SECOND / 20L;
+    public static final long POWER_CAPACITY = 10000L;
     public static final int COOK_TIME = 200;
 
     private NonNullList<ItemStack> inventory = NonNullList.withSize(3, ItemStack.EMPTY); // 0:输入 1:燃料(无用) 2:输出
@@ -34,7 +34,7 @@ public class ElectricFurnace extends SimplePowerTileEntity implements ISidedInve
         ItemStack battery = inventory.get(1);
         if (battery != null && battery.getItem() instanceof com.cac.mpn.item.ItemPrimaryBattery) {
             long batteryEnergy = com.cac.mpn.item.ItemPrimaryBattery.getEnergy(battery);
-            long need = Math.min(POWER_PER_TICK * 2, getCapacity() - getStoredPower()); // 一次最多拉2tick能量
+            long need = Math.min(POWER_PER_TICK * 2L, getCapacity() - getStoredPower()); // 一次最多拉2tick能量
             if (batteryEnergy > 0 && need > 0) {
                 long transfer = Math.min(need, batteryEnergy);
                 setStoredPower(getStoredPower() + transfer);

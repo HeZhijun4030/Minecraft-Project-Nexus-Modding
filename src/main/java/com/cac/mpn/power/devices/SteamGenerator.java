@@ -8,25 +8,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidTankProperties;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.Item;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.EnumFacing;
-import net.minecraftforge.fluids.FluidTank;
 
 
 public class SteamGenerator extends SimplePowerTileEntity implements ISidedInventory {
     public static final int WATER_CAPACITY = 20000;
     public static final int WATER_CONSUME_PER_TICK = 1;
-    public static final int POWER_PER_SECOND = 10;
-    public static final int POWER_PER_TICK = POWER_PER_SECOND / 20;
-    public static final int POWER_CAPACITY = 10000;
+    public static final long POWER_PER_SECOND = 10L;
+    public static final long POWER_PER_TICK = POWER_PER_SECOND / 20L;
+    public static final long POWER_CAPACITY = 10000L;
 
     private final net.minecraftforge.fluids.FluidTank waterTank = new net.minecraftforge.fluids.FluidTank(WATER_CAPACITY) {
         @Override
@@ -268,7 +261,7 @@ public class SteamGenerator extends SimplePowerTileEntity implements ISidedInven
     public int getBurnTime() { return burnTime; }
     public int getBurnTimeTotal() { return burnTimeTotal; }
     public int getWaterTickCounter() { return waterTickCounter; }
-    public int getMaxPower() {
+    public long getMaxPower() {
         return POWER_CAPACITY;
     }
 

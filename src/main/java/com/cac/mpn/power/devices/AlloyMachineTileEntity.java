@@ -13,9 +13,9 @@ import com.cac.mpn.item.RegisterItem;
 import com.cac.mpn.Block.RegisterBlock;
 
 public class AlloyMachineTileEntity extends SimplePowerTileEntity implements ISidedInventory {
-    public static final int POWER_PER_SECOND = 250;
-    public static final int POWER_PER_TICK = POWER_PER_SECOND / 20;
-    public static final int POWER_CAPACITY = 10000;
+    public static final long POWER_PER_SECOND = 250L;
+    public static final long POWER_PER_TICK = POWER_PER_SECOND / 20L;
+    public static final long POWER_CAPACITY = 10000L;
     public static final int WORK_TIME = 100; // 5秒
 
     private NonNullList<ItemStack> inventory = NonNullList.withSize(6, ItemStack.EMPTY); // 0:锡丝 1:铜丝 2:钛锭 3:输出 4:电池 5:预留
@@ -31,7 +31,7 @@ public class AlloyMachineTileEntity extends SimplePowerTileEntity implements ISi
         ItemStack battery = inventory.get(4);
         if (battery != null && battery.getItem() instanceof com.cac.mpn.item.ItemPrimaryBattery) {
             long batteryEnergy = com.cac.mpn.item.ItemPrimaryBattery.getEnergy(battery);
-            long need = Math.min(POWER_PER_TICK * 2, getCapacity() - getStoredPower()); // 一次最多拉2tick能量
+            long need = Math.min(POWER_PER_TICK * 2L, getCapacity() - getStoredPower()); // 一次最多拉2tick能量
             if (batteryEnergy > 0 && need > 0) {
                 long transfer = Math.min(need, batteryEnergy);
                 setStoredPower(getStoredPower() + transfer);
@@ -49,7 +49,7 @@ public class AlloyMachineTileEntity extends SimplePowerTileEntity implements ISi
             // 持续消耗电力
             if (isDataIngotRecipe()) {
                 // 数据锭配方：每秒消耗11,000K ZF
-                long powerPerTick = 11000000 / 20; // 11,000K ZF / 20 ticks = 550K RF/tick
+                long powerPerTick = 11000000L / 20L; // 11,000K ZF / 20 ticks = 550K RF/tick
                 if (getStoredPower() >= powerPerTick) {
                     setStoredPower(getStoredPower() - powerPerTick);
                     workTime++;
@@ -61,7 +61,7 @@ public class AlloyMachineTileEntity extends SimplePowerTileEntity implements ISi
                 }
             } else if (isTitaniumAlloyRecipe()) {
                 // 钛合金锭配方：每秒消耗20K ZF
-                long powerPerTick = 20000 / 20; // 20K ZF / 20 ticks = 1K RF/tick
+                long powerPerTick = 20000L / 20L; // 20K ZF / 20 ticks = 1K RF/tick
                 if (getStoredPower() >= powerPerTick) {
                     setStoredPower(getStoredPower() - powerPerTick);
                     workTime++;

@@ -4,8 +4,8 @@ import com.cac.mpn.power.core.IPowerDevice;
 import com.cac.mpn.power.core.SimplePowerTileEntity;
 
 public class ZincWire extends SimplePowerTileEntity {
-    public static final int CAPACITY = 100;
-    public static final int TRANSFER_PER_TICK = 5; // 5RF/tick = 100RF/s
+    public static final long CAPACITY = 100L;
+    public static final long TRANSFER_PER_TICK = 5L; // 5RF/tick = 100RF/s
 
     public ZincWire() {
         super(CAPACITY, IPowerDevice.DeviceType.TRANSMITTER);
