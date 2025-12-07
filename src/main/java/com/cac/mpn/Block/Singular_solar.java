@@ -1,15 +1,23 @@
 package com.cac.mpn.Block;
+
 import com.cac.mpn.item.ModTabs;
-import net.minecraft.block.Block;
+import com.cac.mpn.power.IPowerDevice;
 import net.minecraft.block.material.Material;
 
-public class Singular_solar extends Block {
-    public Singular_solar()
-    {
-        super(Material.IRON);
+public class Singular_solar extends PowerBlock {
+    public Singular_solar() {
+        super(Material.IRON, IPowerDevice.DeviceType.GENERATOR, 1L, 0L, 0L, 100L, 1L);
         this.setUnlocalizedName("singular_solar");
         this.setRegistryName("singular_solar");
         this.setHardness(5.0F);
         this.setCreativeTab(ModTabs.MPN_TAB);
+    }
+
+    @Override
+    public boolean hasTileEntity(net.minecraft.block.state.IBlockState state) { return true; }
+
+    @Override
+    public net.minecraft.tileentity.TileEntity createTileEntity(net.minecraft.world.World world, net.minecraft.block.state.IBlockState state) {
+        return new com.cac.mpn.power.TileEntityPower();
     }
 }

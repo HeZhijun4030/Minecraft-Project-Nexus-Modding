@@ -11,6 +11,5 @@ public class Titanium extends Block {
         this.setRegistryName("titanium");
         this.setHardness(5.0F);
         this.setCreativeTab(ModTabs.MPN_TAB);
-        this.setHarvestLevel("pickaxe", 2);
     }
 }

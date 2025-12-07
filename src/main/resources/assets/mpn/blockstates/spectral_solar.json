@@ -1,30 +1,13 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "cube_all",
-    "textures": {
-      "up": "mpn:blocks/spectral_solar_top",
-      "down": "mpn:blocks/spectral_solar_nnn",
-      "north": "mpn:blocks/spectral_solar_nnn",
-      "south": "mpn:blocks/spectral_solar_nnn",
-      "west": "mpn:blocks/spectral_solar_nnn",
-      "east": "mpn:blocks/spectral_solar_nnn"
-    }
+    "model": "mpn:spectral_solar"
   },
   "variants": {
-    "facing": {
-      "north": [{}],
-      "east": [{"y": 90}],
-      "south": [{"y": 180}],
-      "west": [{"y": 270}],
-      "up": [{"x": 270}],
-      "down": [{"x": 90}]
-    },
-    "inventory": {
-      "model": "cube_all",
-      "textures": {
-        "all": "mpn:blocks/spectral_solar_top"
-      }
-    }
+    "facing=north": [{}],
+    "facing=south": [{"y": 180}],
+    "facing=west": [{"y": 270}],
+    "facing=east": [{"y": 90}],
+    "inventory": [{}]
   }
 }

@@ -1,11 +1,13 @@
 {
   "forge_marker": 1,
-  "defaults": {
-    "model": "minecraft:cube_all",
-    "textures": { "all": "mpn:blocks/zinc" }
-  },
-  "variants": {
-    "normal": [{}],
-    "inventory": [{ "transform": "forge:default-block" }]
-  }
-} 
+
+    "defaults": {
+      "model": "minecraft:cube_all" ,
+      "textures": { "all":  "mpn:blocks/zinc"}
+    },
+      "variants": {
+      "normal": [{}],
+      "inventory": [{ "transform": "forge:default-block"}]
+    }
+
+}

@@ -1,13 +1,13 @@
 {
   "forge_marker": 1,
-
-    "defaults": {
-      "model": "minecraft:cube_all" ,
-      "textures": { "all":  "mpn:blocks/singular_solar"}
-    },
-    "variants": {
-      "normal": [{}],
-      "inventory": [{ "transform": "forge:default-block"}]
-    }
-
+  "defaults": {
+    "model": "mpn:singular_solar"
+  },
+  "variants": {
+    "facing=north": [{}],
+    "facing=south": [{"y": 180}],
+    "facing=west": [{"y": 270}],
+    "facing=east": [{"y": 90}],
+    "inventory": [{}]
+  }
 }

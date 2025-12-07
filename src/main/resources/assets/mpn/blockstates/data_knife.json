@@ -3,7 +3,7 @@
   "defaults": {
     "model": "minecraft:builtin/generated",
     "textures": {"layer0": "mpn:items/data_knife"}
-  },
+    },
   "variants": {
     "inventory": [
       {

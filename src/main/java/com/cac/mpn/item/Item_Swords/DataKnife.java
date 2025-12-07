@@ -14,4 +14,4 @@ public class DataKnife extends ItemSword {
         setUnlocalizedName("data_knife");
         setCreativeTab(ModTabs.MPN_TAB);
     }
-} 
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "mpn:blocks/electronic_solar_top",
+    "down": "mpn:blocks/solar_common",
+    "up": "mpn:blocks/electronic_solar_top",
+    "north": "mpn:blocks/solar_common",
+    "south": "mpn:blocks/solar_common",
+    "west": "mpn:blocks/solar_common",
+    "east": "mpn:blocks/solar_common"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "mpn:blocks/electrolyzer_front",
+    "down": "mpn:blocks/electrolyzer_side",
+    "up": "mpn:blocks/electrolyzer_top",
+    "north": "mpn:blocks/electrolyzer_front",
+    "south": "mpn:blocks/electrolyzer_side",
+    "west": "mpn:blocks/electrolyzer_side",
+    "east": "mpn:blocks/electrolyzer_side"
+  }
+}

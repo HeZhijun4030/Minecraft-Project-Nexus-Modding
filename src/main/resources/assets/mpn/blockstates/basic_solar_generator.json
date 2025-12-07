@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "normal": { "model": "mpn:basic_solar_generator" },
-    "inventory": { "model": "mpn:basic_solar_generator" }
-  }
-} 
